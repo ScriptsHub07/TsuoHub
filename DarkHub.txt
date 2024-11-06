@@ -2286,7 +2286,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
         end
     })
     
-    Tabs.Sh:AddSection("Các Loại Võ")
+    Tabs.Sh:AddSection("Estilos de Luta")
     
     Tabs.Sh:AddButton({
         Title = "Comprar Sanguine Art",
