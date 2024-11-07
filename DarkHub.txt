@@ -2194,7 +2194,7 @@ end
     TabWidth = 120,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Aqua",
+    Theme = "Darker",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
@@ -2218,7 +2218,7 @@ local Options = Fluent.Options
 do
     Fluent:Notify({
         Title = "Dark Hub",
-        Content = "",
+        Content = "Carregando Script...",
         SubContent = "", -- Optional
         Duration = 5 -- Set to nil to make the notification not disappear
     })
