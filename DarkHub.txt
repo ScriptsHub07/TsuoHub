@@ -2189,7 +2189,7 @@ function getAllBladeHitsPlayers(Sizes)
 end
 
     local Window = Fluent:CreateWindow({
-    Title = "Yuta Hub" ,
+    Title = "Dark Hub" ,
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(480, 320),
@@ -2217,7 +2217,7 @@ local Options = Fluent.Options
 
 do
     Fluent:Notify({
-        Title = "Yuta Hub",
+        Title = "Dark Hub",
         Content = "Carregando Script...",
         SubContent = "", -- Optional
         Duration = 5 -- Set to nil to make the notification not disappear
@@ -7583,7 +7583,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://96292336561579"
+ImageButton1.Image = ""
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
