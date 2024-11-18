@@ -2223,10 +2223,6 @@ do
 
     Toggle:OnChanged(function(Value)
         _G.AutoFarm = Value
-        _G.AutoSecondSea = Value
-        _G.AutoThirdSea = Value
-		StopTween(_G.AutoThirdSea)
-		StopTween(_G.AutoSecondSea)
         StopTween(_G.AutoFarm)
     end)
 
