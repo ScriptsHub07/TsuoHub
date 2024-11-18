@@ -2250,6 +2250,7 @@ do
         "DRAGONABUSE",
     }
 
+
 Tabs.Sh:AddButton({
         Title = "Resgatar Codigos",
         Description = "",
@@ -7841,3 +7842,4 @@ function FastAttackConnectorFunction()
     return ReturnFunctions
 end
 return FastAttackConnectorFunction()
+SaveManager:LoadAutoloadConfig()
