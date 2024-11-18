@@ -7841,5 +7841,4 @@ function FastAttackConnectorFunction()
     end)
     return ReturnFunctions
 end
-SaveManager:LoadAutoloadConfig()
 return FastAttackConnectorFunction()
