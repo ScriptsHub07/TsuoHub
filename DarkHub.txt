@@ -7545,6 +7545,29 @@ local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Plug Holy Torch", Default
     end
 end)
 
+Tabs.Kt:AddParagraph({
+    Title = "Auto Kaitun",
+    Content = "Ative para começar"
+})
+
+local Toggle = Tabs.Kt:AddToggle("MyToggle", {Title = "Auto Kaitun", Default = false })
+
+Toggle:OnChanged(function(Value)
+    _G.RedeemCode = Value
+    _G.AutoFarm = Value
+    _G.SelectWeapon = Value
+   _G.AutoPlayerHunter = Value
+   _G.Stats = Value
+   _G.Auto_Saber = Value
+   _G.AutoSuperhuman = Value
+   _G.AutoBartilo = Value
+   _G.AutoBuyLegendarySword = Value
+   _G.BuyAllAib = Value
+   StopTween(_G.AutoFarm)
+   StopTween(_G.Hunter)
+   StopTween(_G.Auto_Saber)
+end)
+
 local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Tween Gear", Default = false })
 
     Toggle:OnChanged(function(Value)
@@ -7568,29 +7591,6 @@ spawn(function()
 			end
         end
     end)
-    end)
-           
-    Tabs.Kt:AddParagraph({
-        Title = "Auto Kaitun",
-        Content = "Ative para começar"
-    })
-
-    local Toggle = Tabs.Kt:AddToggle("MyToggle", {Title = "Auto Kaitun", Default = false })
-
-    Toggle:OnChanged(function(Value)
-        _G.RedeemCode = Value
-        _G.AutoFarm = Value
-        _G.SelectWeapon = Value
-       _G.AutoPlayerHunter = Value
-       _G.Stats = Value
-       _G.Auto_Saber = Value
-       _G.AutoSuperhuman = Value
-       _G.AutoBartilo = Value
-       _G.AutoBuyLegendarySword = Value
-       _G.BuyAllAib = Value
-       StopTween(_G.AutoFarm)
-       StopTween(_G.Hunter)
-       StopTween(_G.Auto_Saber)
     end)
 
 local ScreenGui1 = Instance.new("ScreenGui")
