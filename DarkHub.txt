@@ -7556,16 +7556,15 @@ Toggle:OnChanged(function(Value)
     _G.RedeemCode = Value
     _G.AutoFarm = Value
     _G.SelectWeapon = Value
-   _G.AutoPlayerHunter = Value
-   _G.Stats = Value
-   _G.Auto_Saber = Value
-   _G.AutoSuperhuman = Value
-   _G.AutoBartilo = Value
-   _G.AutoBuyLegendarySword = Value
-   _G.BuyAllAib = Value
-   StopTween(_G.AutoFarm)
-   StopTween(_G.Hunter)
-   StopTween(_G.Auto_Saber)
+    _G.AutoElitehunter = Value
+    _G.Stats = Value
+    _G.AutoBartilo = Value
+    _G.AutoThirdSea = Value
+    _G.AutoSecondSea = Value
+	StopTween(_G.AutoSecondSea)
+    StopTween(_G.AutoThirdSea)
+    StopTween(_G.AutoFarm)
+    StopTween(_G.AutoElitehunter)
 end)
 
 local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Tween Gear", Default = false })
