@@ -7560,10 +7560,6 @@ Toggle:OnChanged(function(Value)
     _G.AutoElitehunter = Value
     _G.Stats = Value
     _G.AutoBartilo = Value
-    _G.AutoThirdSea = Value
-    _G.AutoSecondSea = Value
-	StopTween(_G.AutoSecondSea)
-    StopTween(_G.AutoThirdSea)
     StopTween(_G.AutoFarm)
     StopTween(_G.AutoElitehunter)
 end)
@@ -7842,3 +7838,4 @@ function FastAttackConnectorFunction()
     return ReturnFunctions
 end
 return FastAttackConnectorFunction()
+SaveManager:LoadAutoloadConfig()
