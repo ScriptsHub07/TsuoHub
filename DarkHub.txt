@@ -7598,8 +7598,8 @@ ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
 end)
+UICorner.CornerRadius = UDim.new(1, 0)
 UICorner.Parent = ImageButton1
-UICorner.CornerRadius = 1
                  
 local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
 local CombatFrameworkR = getupvalues(CombatFramework)[2]
