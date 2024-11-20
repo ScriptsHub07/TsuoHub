@@ -2194,7 +2194,7 @@ end
     TabWidth = 120,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "DarkHub",
+    Theme = "Darker",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
@@ -2218,7 +2218,7 @@ local Options = Fluent.Options
 do
     Fluent:Notify({
         Title = "Dark X Hub",
-        Content = "Carregando",
+        Content = "Carregando...",
         SubContent = "",
         Duration = 5
     })
@@ -7593,12 +7593,13 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://115291470270199"
+ImageButton1.Image = "rbxassetid://94202883962855"
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
 end)
 UICorner.Parent = ImageButton1
+UICorner.CornerRadius = 1
                  
 local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
 local CombatFrameworkR = getupvalues(CombatFramework)[2]
