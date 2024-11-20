@@ -1,23 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-local Themes = {
-	Names = {
-		"Dark",
-		"DarkHub",
-		"Light",
-		"Aqua",
-		"Amethyst",
-		"Rose",
-	},
-}
-
-for _, Theme in next, script:GetChildren() do
-	local Required = require(Theme)
-	Themes[Required.Name] = Required
-end
-
-return Themes
 return {
 	Name = "DarkHub",
 	Accent = Color3.fromRGB(38, 38, 38),
@@ -48,6 +31,23 @@ return {
 	DialogInput = Color3.fromRGB(45, 45, 45),
 	DialogInputLine = Color3.fromRGB(120, 120, 120),
 }
+local Themes = {
+	Names = {
+		"Dark",
+		"DarkHub",
+		"Light",
+		"Aqua",
+		"Amethyst",
+		"Rose",
+	},
+}
+
+for _, Theme in next, script:GetChildren() do
+	local Required = require(Theme)
+	Themes[Required.Name] = Required
+end
+
+return Themes
 
 if game.PlaceId == 2753915549 then
         World1 = true
