@@ -1,152 +1,101 @@
--- Configuration variables
-local config = {
-    fpsCap = 9999,
-    disableChat = true,            -- Set to true to hide the chat
-    enableBigButton = true,        -- Set to true to enlarge the button in the shake UI
-    bigButtonScaleFactor = 2,      -- Scale factor for big button size
-    shakeSpeed = 0.05,             -- Lower value means faster shake (e.g., 0.05 for fast, 0.1 for normal)
-    FreezeWhileFishing = true      -- Set to true to freeze your character while fishing
-}
+-- Originally released on v3rmillion by https://v3rm.net/threads/fisch-auto-fish.13532/
+local Players = game:GetService('Players')
+local CoreGui = game:GetService('StarterGui')
+local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local ContextActionService = game:GetService('ContextActionService')
+local VirtualInputManager = game:GetService('VirtualInputManager')
 
--- Set FPS cap
-setfpscap(config.fpsCap)
+local LocalPlayer = Players.LocalPlayer
 
--- Services
-local players = game:GetService("Players")
-local vim = game:GetService("VirtualInputManager")
-local run_service = game:GetService("RunService")
-local replicated_storage = game:GetService("ReplicatedStorage")
-local localplayer = players.LocalPlayer
-local playergui = localplayer.PlayerGui
-local StarterGui = game:GetService("StarterGui")
+local Enabled = false
+local Rod = false
+local Casted = false
+local Progress = false
+local Finished = false
 
--- Disable chat if the option is enabled in config
-if config.disableChat then
-    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+local Keybind = Enum.KeyCode.F
+
+function ShowNotification(String)
+    CoreGui:SetCore('SendNotification', {
+        Title = 'Notification',
+        Text = String,
+        Duration = 1
+    })
 end
 
--- Utility functions
-local utility = {blacklisted_attachments = {"bob", "bodyweld"}}; do
-    function utility.simulate_click(x, y, mb)
-        vim:SendMouseButtonEvent(x, y, (mb - 1), true, game, 1)
-        vim:SendMouseButtonEvent(x, y, (mb - 1), false, game, 1)
-    end
-
-    function utility.move_fix(bobber)
-        for index, value in bobber:GetDescendants() do
-            if (value.ClassName == "Attachment" and table.find(utility.blacklisted_attachments, value.Name)) then
-                value:Destroy()
+function ToggleFarm(Name, State, Input)
+    if State == Enum.UserInputState.Begin then
+        Enabled = not Enabled
+        LocalPlayer.Character.HumanoidRootPart.Anchored = Enabled
+        
+        if not Enabled then
+            Finished = false
+            Progress = false
+            
+            if Rod then
+                Rod.events.reset:FireServer()
             end
         end
+        
+        ShowNotification(`Status: {Enabled}`)
     end
 end
 
-local farm = {reel_tick = nil, cast_tick = nil}; do
+LocalPlayer.Character.ChildAdded:Connect(function(Child)
+    if Child:IsA('Tool') and Child.Name:lower():find('rod') then
+        Rod = Child
+    end
+end)
 
-    function farm.find_rod()
-        local character = localplayer.Character
-        if not character then return nil end
+LocalPlayer.Character.ChildRemoved:Connect(function(Child)
+    if Child == Rod then
+        Enabled = false
+        Finished = false
+        Progress = false
+        Rod = nil
+    end
+end)
 
-        for _, tool in ipairs(character:GetChildren()) do
-            if tool:IsA("Tool") and (tool.Name:find("rod") or tool.Name:find("Rod")) then
-                return tool
+LocalPlayer.PlayerGui.DescendantAdded:Connect(function(Descendant)
+    if Descendant.Name == 'button' and Descendant.Parent.Name == 'safezone' then
+        task.wait(0.1)
+        local ButtonPosition, ButtonSize = Descendant.AbsolutePosition, Descendant.AbsoluteSize
+        VirtualInputManager:SendMouseButtonEvent(ButtonPosition.X + (ButtonSize.X / 2), ButtonPosition.Y + (ButtonSize.Y / 2), Enum.UserInputType.MouseButton1.Value, true, LocalPlayer.PlayerGui, 1)
+        VirtualInputManager:SendMouseButtonEvent(ButtonPosition.X + (ButtonSize.X / 2), ButtonPosition.Y + (ButtonSize.Y / 2), Enum.UserInputType.MouseButton1.Value, false, LocalPlayer.PlayerGui, 1)
+    elseif Descendant.Name == 'playerbar' and Descendant.Parent.Name == 'bar' then
+        Finished = true
+        Descendant:GetPropertyChangedSignal('Position'):Wait()
+        ReplicatedStorage.events.reelfinished:FireServer(100, true)
+    end
+end)
+
+LocalPlayer.PlayerGui.DescendantRemoving:Connect(function(Descendant)
+    if Descendant.Name == 'reel' then
+        Finished = false
+        Progress = false
+    end
+end)
+
+coroutine.wrap(function()
+    while true do
+        if Enabled and not Progress then
+            if Rod then
+                Progress = true
+                task.wait(0.5)
+                Rod.events.reset:FireServer()
+                Rod.events.cast:FireServer(100.5)
             end
         end
-        return nil
+    
+        task.wait()
     end
+end)()
 
-    function farm.freeze_character(freeze)
-        local character = localplayer.Character
-        if character then
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if humanoid then
-                if freeze then
-                    humanoid.WalkSpeed = 0
-                    humanoid.JumpPower = 0
-                else
-                    humanoid.WalkSpeed = 16  -- Default WalkSpeed
-                    humanoid.JumpPower = 50  -- Default JumpPower
-                end
-            end
-        end
-    end
+local NewRod = LocalPlayer.Character:FindFirstChildWhichIsA('Tool')
 
-    function farm.cast()
-        local character = localplayer.Character
-        if not character then return end
-
-        local rod = farm.find_rod()
-        if not rod then return end
-
-        -- Instantly cast without cooldown
-        local args = { [1] = 100, [2] = 1 }
-        rod.events.cast:FireServer(unpack(args))
-        farm.cast_tick = 0  -- Reset last cast time
-    end
-
-    function farm.shake()
-        local shake_ui = playergui:FindFirstChild("shakeui")
-        if shake_ui then
-            local safezone = shake_ui:FindFirstChild("safezone")
-            local button = safezone and safezone:FindFirstChild("button")
-
-            if button then
-                -- Apply big button option from config
-                if config.enableBigButton then
-                    button.Size = UDim2.new(config.bigButtonScaleFactor, 0, config.bigButtonScaleFactor, 0)
-                else
-                    button.Size = UDim2.new(1, 0, 1, 0)  -- Reset to default size if disabled
-                end
-
-                if button.Visible then
-                    utility.simulate_click(
-                        button.AbsolutePosition.X + button.AbsoluteSize.X / 2,
-                        button.AbsolutePosition.Y + button.AbsoluteSize.Y / 2,
-                        1
-                    )
-                end
-            end
-        end
-    end
-
-    function farm.reel()
-        local reel_ui = playergui:FindFirstChild("reel")
-        if not reel_ui then return end
-
-        local reel_bar = reel_ui:FindFirstChild("bar")
-        if not reel_bar then return end
-       
-        local reel_client = reel_bar:FindFirstChild("reel")
-        if not reel_client then return end
-
-        if reel_client.Disabled == true then
-            reel_client.Disabled = false
-        end
-
-        local update_colors = getsenv(reel_client).UpdateColors
-
-        -- Instant reel without waiting
-        if update_colors then
-            setupvalue(update_colors, 1, 100)
-            replicated_storage.events.reelfinished:FireServer(getupvalue(update_colors, 1), true)
-        end
-    end
-   
+if NewRod and NewRod.Name:lower():find('rod') then
+    Rod = NewRod
 end
 
--- Main loop with rod check, configurable shake speed, and freeze feature
-while task.wait(config.shakeSpeed) do
-    local rod = farm.find_rod() -- Check if player is holding a rod
-    if rod then
-        -- Freeze character if enabled in config
-        if config.FreezeWhileFishing then
-            farm.freeze_character(true)
-        end
-        farm.cast()
-        farm.shake()
-        farm.reel()
-    else
-        -- Unfreeze character when not fishing
-        farm.freeze_character(false)
-    end
-end
+ContextActionService:BindAction('ToggleFarm', ToggleFarm, false, Keybind)
+ShowNotification(`Press '{Keybind.Name}' to enable/disable`)
