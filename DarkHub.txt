@@ -1,22 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-
-local FluentUI = require(game.ReplicatedStorage:WaitForChild("FluentUI"))
-local Theme = FluentUI.Style.Theme
-
--- Definir a cor personalizada
-local DarkHub = Color3.fromRGB(255, 0, 0)  -- Vermelho, por exemplo
-
--- Criar um novo tema ou pegar o tema atual
-local DarkHub = Theme.new({
-    -- Adicionar a nova cor no tema
-    myCustomColor = DarkHub,
-})
-
--- Aplicar o tema personalizado
-FluentUI.Style.SetTheme(DarkHub)
-
 if game.PlaceId == 2753915549 then
         World1 = true
     elseif game.PlaceId == 4442272183 then
@@ -2210,7 +2194,7 @@ end
     TabWidth = 120,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "DarkHub",
+    Theme = "Darker",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
