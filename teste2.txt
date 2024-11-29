@@ -1,8 +1,7 @@
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-HttpService = game:GetService("HttpService")
-
 if game.PlaceId == 2753915549 then
         World1 = true
     elseif game.PlaceId == 4442272183 then
@@ -10,6 +9,33 @@ if game.PlaceId == 2753915549 then
     elseif game.PlaceId == 7449423635 then
         World3 = true
     end
+AnalyticsService = game:GetService("AnalyticsService")
+CollectionService = game:GetService("CollectionService")
+DataStoreService = game:GetService("DataStoreService")
+HttpService = game:GetService("HttpService")
+Lighting = game:GetService("Lighting")
+MarketplaceService = game:GetService("MarketplaceService")
+Players = game:GetService("Players")
+ReplicatedFirst = game:GetService("ReplicatedFirst")
+ReplicatedStorage = game:GetService("ReplicatedStorage")
+RunService = game:GetService("RunService")
+ServerScriptService = game:GetService("ServerScriptService")
+ServerStorage = game:GetService("ServerStorage")
+SoundService = game:GetService("SoundService")
+StarterGui = game:GetService("StarterGui")
+StarterPack = game:GetService("StarterPack")
+StarterPlayer = game:GetService("StarterPlayer")
+TeleportService = game:GetService("TeleportService")
+TweenService = game:GetService("TweenService")
+Teams = game:GetService("Teams")
+VirtualUser = game:GetService("VirtualUser")
+Workspace = game:GetService("Workspace")
+UserInputService = game:GetService("UserInputService")
+VirtualInputManager = game:GetService("VirtualInputManager")
+ContextActionService = game:GetService("ContextActionService")
+GuiService = game:GetService("GuiService")
+print("ClientMonsterTools.lua loaded")
+
     function MaterialMon()
 			if _G.SelectMaterial == "Radioactive Material" then
 				MMon = "Factory Staff"
@@ -2191,8 +2217,8 @@ function getAllBladeHitsPlayers(Sizes)
 end
 
     local Window = Fluent:CreateWindow({
-    Title = "Yuta Hub" ,
-    SubTitle = "By Yutara",
+    Title = "Dark X Hub" ,
+    SubTitle = "By dark_769.",
     TabWidth = 120,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
@@ -2200,7 +2226,6 @@ end
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
---Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
     Main = Window:AddTab({ Title = "Farm", Icon = "home" }),
 	Settings = Window:AddTab({ Title = "Setting Farm", Icon = "settings" }),    
@@ -2213,17 +2238,17 @@ local Tabs = {
     Se = Window:AddTab({ Title = "Sea Event", Icon = "anchor" }),   
     Qs = Window:AddTab({ Title = "Quest And Upgrade Race", Icon = "arrow-up-down" }),
     Ms = Window:AddTab({ Title = "Misc", Icon = "align-vertical-distribute-center" }),
-    Webhook = Window:AddTab({ Title = "Webhook", Icon = "clock" }),
+    Webhook = Window:AddTab({ Title = "Webhook", Icon = "clock" }),   
 }
 
 local Options = Fluent.Options
 
 do
     Fluent:Notify({
-        Title = "Yuta Hub",
-        Content = "",
-        SubContent = "", -- Optional
-        Duration = 5 -- Set to nil to make the notification not disappear
+        Title = "Dark X Hub",
+        Content = "Carregando...",
+        SubContent = "",
+        Duration = 5
     })
     end
     
@@ -2906,6 +2931,15 @@ end)
                                         v.Humanoid.Animator:Destroy()
                                     end
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                                end
+                            elseif _G.Auto_Bone and StartMagnet and v.Name == Mon and (Mon == "Living Zombie" or Mon == "Reborn Skeleton" or Mon == "Posessed Mummy" or Mon == "Demonic Soul") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
+                                v.HumanoidRootPart.Size = Vector3.new(150,150,150)
+                                v.HumanoidRootPart.CFrame = PosMon
+                                v.Humanoid:ChangeState(14)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
                                 end
                             elseif v.Name == Mon then
                                 if (v.HumanoidRootPart.Position - PosMonMasteryFruit.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -7502,6 +7536,53 @@ local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Plug Holy Torch", Default
 		end
 		end
         end)
+
+        function WebhookManager()
+            spawn(function()
+                while WebhookLog do
+                    task.wait(WebhookDelay)
+                    local OSTime = os.time()
+                    local playerLocalTime = os.date('*t', OSTime)
+                    local formattedLocalTime = string.format('%02d:%02d:%02d',
+                                                     playerLocalTime.hour,
+                                                     playerLocalTime.min,
+                                                     playerLocalTime.sec)
+                    
+                    local player = game.Players.LocalPlayer
+                    local playerUserId = player.UserId
+                    local playerProfileUrl = "https://www.roblox.com/users/" .. playerUserId .. "/profile"
+        
+                    local MoneyPlayer = game:GetService("Players").LocalPlayer.Data.Beli.Value
+                    local LvlPlayer = game:GetService("Players").LocalPlayer.Data.Level.Value
+        
+                    local Embed = {
+                        title = 'DARK X',
+                        color = 0x8B26BB,
+                        fields = {
+                            { name = 'Player Profile', value = playerProfileUrl },
+                            { name = '', value = '', },
+                            { name = 'Money💸', value = '```' .. MoneyPlayer .. '```', inline = true },
+                            { name = 'Level⬆️', value = '```' .. LvlPlayer .. '```', inline = true },
+                            { name = '', value = '', },
+                            { name = 'Current Local Time', value = formattedLocalTime },
+                        },
+                        timestamp = os.date('!%Y-%m-%dT%H:%M:%SZ', OSTime),
+                    }
+                    local success, response = pcall(function()
+                        return (syn and syn.request or http_request) {
+                            Url = WebhookUrl,
+                            Method = 'POST',
+                            Headers = { ['Content-Type'] = 'application/json' },
+                            Body = game:GetService('HttpService'):JSONEncode({
+                                username = 'Dark X | Fisch',
+                                avatar_url = 'https://cdn.discordapp.com/attachments/1256008808757592138/1308784374019391641/20241120_102121.png?ex=6749172e&is=6747c5ae&hm=d5bd4aadbad1d509275f127ecc5233c721a64429c9f10e4dbdb5d666e101af44&',
+                                embeds = { Embed }
+                            }),
+                        }
+                    end)
+                end
+            end)
+        end
         
         local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Tween Mystic Island", Default = false })
 
@@ -7573,53 +7654,6 @@ spawn(function()
     end)
     end)
 
-    function WebhookManager()
-    spawn(function()
-        while WebhookLog do
-            task.wait(WebhookDelay)
-            local OSTime = os.time()
-            local playerLocalTime = os.date('*t', OSTime)
-            local formattedLocalTime = string.format('%02d:%02d:%02d',
-                                             playerLocalTime.hour,
-                                             playerLocalTime.min,
-                                             playerLocalTime.sec)
-            
-            player = game.Players.LocalPlayer
-            local playerUserId = player.UserId
-            local playerProfileUrl = "https://www.roblox.com/users/" .. playerUserId .. "/profile"
-
-            local MoneyPlayer = game:GetService("Players").LocalPlayer.Data.Beli.Value
-            local LvlPlayer = game:GetService("Players").LocalPlayer.Data.Level.Value
-
-            local Embed = {
-                title = 'DARK X',
-                color = 0x8B26BB,
-                fields = {
-                    { name = 'Player Profile', value = playerProfileUrl },
-                    { name = '', value = '', },
-                    { name = 'Money💸', value = '```' .. MoneyPlayer .. '```', inline = true },
-                    { name = 'Level⬆️', value = '```' .. LvlPlayer .. '```', inline = true },
-                    { name = '', value = '', },
-                    { name = 'Current Local Time', value = formattedLocalTime },
-                },
-                timestamp = os.date('!%Y-%m-%dT%H:%M:%SZ', OSTime),
-            }
-            local success, response = pcall(function()
-                return (syn and syn.request or http_request) {
-                    Url = WebhookUrl,
-                    Method = 'POST',
-                    Headers = { ['Content-Type'] = 'application/json' },
-                    Body = game:GetService('HttpService'):JSONEncode({
-                        username = 'Dark X | Webhook',
-                        avatar_url = 'https://cdn.discordapp.com/attachments/1256008808757592138/1308784374019391641/20241120_102121.png?ex=6749172e&is=6747c5ae&hm=d5bd4aadbad1d509275f127ecc5233c721a64429c9f10e4dbdb5d666e101af44&',
-                        embeds = { Embed }
-                    }),
-                }
-            end)
-        end
-    end)
-end
-
     local section = Tabs.Webhook:AddSection("Webhook Stats Messages")
     local InputWebhook = Tabs.Webhook:AddInput("InputWebhook", {
         Title = "Webhook Url",
@@ -7635,9 +7669,9 @@ end
         print("Url Changed:", InputWebhook.Value)
     end)
     local SliderWebhook = Tabs.Webhook:AddSlider("SliderWebhook", {
-        Title = "Quantos segundos para enviar?",
-        Description = "Preferencia de 90 segundos",
-        Default = 90,
+        Title = "Enviar apos quantos segundos?",
+        Description = "Preferencia 60 segundos",
+        Default = 60,
         Min = 1,
         Max = 600,
         Rounding = 1,
@@ -7655,8 +7689,6 @@ end
         WebhookManager()
     end)
 end
-
-
            
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
@@ -7672,11 +7704,12 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://96292336561579"
+ImageButton1.Image = "rbxassetid://94202883962855"
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
 end)
+UICorner.CornerRadius = UDim.new(1, 0)
 UICorner.Parent = ImageButton1
                  
 local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
