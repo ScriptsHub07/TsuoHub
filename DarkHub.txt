@@ -4285,9 +4285,7 @@ spawn(function()
                                                    v.Humanoid.WalkSpeed = 0
                                                    v.HumanoidRootPart.CanCollide = false
                                                    v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
-                                                if _G.AutoElite == false or v.Humanoid.Health <= 0 or not v.Parent then
-                                                    _G.AutoLevel = true
-                                                end
+                                                until _G.AutoElite == false or v.Humanoid.Health <= 0 or not v.Parent
                                            end
                                        end
                                    end
