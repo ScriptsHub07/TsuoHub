@@ -1,64 +1,3 @@
-local exploit = getexecutorname or identifyexecutor
-local support = {
-    ["Fluxus"] = true,
-    ["Trigon"] = false,
-    ["Codex"] = true,
-    ["Delta"] = true,
-    ["Vega X"] = true,
-    ["Hydrogen"] = true,
-    ["alysse"] = false,
-    ["ArceusX"] = true,
-    ["Electron"] = false,
-}
-    
-local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Fluxus" or
-"Fluxus"
-                    local HttpService = game:GetService("HttpService")
-                     local Data =
-                        {
-                            ["embeds"]= {
-                                {            
-                                    ["title"]= "𝙥𝙡𝙖𝙮𝙚𝙧𝙨 𝙥𝙧𝙤𝙛𝙞𝙡𝙚💻";
-                                    ["url"]= "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId;
-                                    ["description"]= "||```"..game.Players.LocalPlayer.DisplayName.." ("..game.Players.LocalPlayer.Name..")```||";
-                                    ["color"]= tonumber(0x7269da);
-                                     ["thumbnail"] = {["url"] = "https://cdn.discordapp.com/attachments/1171840145335537824/1201725336598106183/Screenshot_2024-01-28-16-39-42-226_com.facebook.katana-edit.jpg?ex=65cadcef&is=65b867ef&hm=850789c6f502230b1eaa6ffed401f83a8c7d3a5ffea10e13ef382b3806a80615&"};
-                                    
-                                    ["fields"]= {
-                                        {
-                                            ["name"]= "𝙀𝙭𝙚𝙘𝙪𝙩𝙤𝙧📑",
-                                            ["value"]= "```"..ExecutorUsing.."```",
-                                            ["inline"]= true
-                                        },
-                                        {
-                                            ["name"]= "𝘼𝙜𝙚🗓",
-                                            ["value"]= "```"..game.Players.LocalPlayer.AccountAge.." Day```",
-                                            ["inline"]= true
-                                        },
-                                        {
-                                            ["name"]= "𝙎𝙘𝙧𝙞𝙥𝙩 𝙎𝙩𝙖𝙩𝙪𝙨ℹ️",
-                                            ["value"]= "```Script Dark X | Blox fruit esta atualizado```",
-                                            ["inline"]= true
-                                            },
-                                       {
-                                     ["name"] = "𝙅𝙤𝙗 𝙄𝙙",
-                                     ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                                     ["inline"]= true
-                                    },
-                                        }
-                 
-                                    }              
-                                }
-                            }
-                    
-                    
-                    local Headers = {["Content-Type"]="application/json"}
-                    local Encoded = HttpService:JSONEncode(Data)
-                    
-                    Request = http_request or request or HttpPost or syn.request
-                    local Final = {Url = "https://discord.com/api/webhooks/1203612065302970389/GHxtX7Y_Pdy2lQbZPo91hEfvXRagarlM5OYjAFy7NiaVFKLbbZuRpDl-SX3w3y6Cv24W", Body = Encoded, Method = "POST", Headers = Headers}
-                    Request(Final)
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -84,6 +23,7 @@ local Tabs = {
     Race = Window:AddTab({ Title = "Race V4", Icon = "" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "" }),
 	Misc = Window:AddTab({ Title = "Misc", Icon = "" }),
+    Mf = Window:AddTab({ Title = "Multi Farm", Icon = "" }),
 }
 local Options = Fluent.Options
 do
@@ -7509,6 +7449,67 @@ spawn(function()
 end)
 end
 
+Tabs.Mf:AddParagraph({
+    Title = "Selecione o multi farm",
+    Content = ""
+})
+
+local Toggle = Tabs.Mf:AddToggle("MyToggle", {Title = "Level e Elite Hunter", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.LevelHunter = Value
+    end)
+
+if _G.LevelHunter == true then
+    local farmandoNivel = true
+    local eliteHunterAtivo = false
+
+-- Função para farmar NPCs e upar nível
+function farmarNivel()
+    _G.AutoLevel = true
+    _G.AutoElite = false
+    print("Fazendo farm de nível...")
+    
+    verificarEliteHunter()
+end
+
+-- Função para verificar se o Elite Hunter está ativo
+function verificarEliteHunter()
+    if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+        pararFarming()
+        irParaEliteHunter()
+    else
+        eliteHunterAtivo = false
+        farmandoNivel = true
+        farmarNivel()
+    end
+end
+
+-- Função para parar o farming de nível e ir para o Elite Hunter
+function pararFarming()
+    farmandoNivel = false
+    print("Elite Hunter detectado, indo caçar!")
+    _G.AutoLevel = false
+    _G.AutoElite = true
+end
+-- Função para retornar ao farming de nível
+function retornarParaFarming()
+    print("Elite Hunter derrotado, voltando para o farming de nível...")
+    farmandoNivel = true
+    farmarNivel()
+end
+
+-- Inicia o script, começando o farming de nível
+    if farmandoNivel == true then
+        farmarNivel()
+    else
+        -- Se não estiver farmando, significa que o Elite Hunter está ativo, aguardando até voltar para o farming.
+        wait(1)
+    end
+end
+end
+
+    
 OrionLib:MakeNotification(
     {
         Name = "Notification",
