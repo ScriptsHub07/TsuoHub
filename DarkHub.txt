@@ -2815,10 +2815,7 @@ end)
             wait()
         end
     end)
-    if Lv >= 2550 then
-        _G.AutoLevel = false
-        _G.CakePrince = true
-    end
+    
     Options.ToggleLevel:SetValue(false)
     spawn(function()
         while task.wait() do
@@ -7511,6 +7508,11 @@ spawn(function()
         end
     end
 end)
+end
+
+if Lv >= 2550 then
+    _G.AutoLevel = false
+    _G.CakePrince = true
 end
 
 OrionLib:MakeNotification(
