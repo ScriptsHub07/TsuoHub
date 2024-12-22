@@ -9,23 +9,19 @@ local Tab = {
     Tab_2 = Window:addTab('#Main Farm'),
     Tab_SubFarm = Window:addTab('#Subs Farm'),
     Tab_3 = Window:addTab('#Quest'),
-    Tab_4 = Window:addTab('#Dojo Quest'),
     Tab_Sea = Window:addTab('#Sea Event'),
     Tab_RaceV4 = Window:addTab('#Race V4'),
-    Tab_5 = Window:addTab('#Raids'),
+    Tab_4 = Window:addTab('#Raids'),
     Tab_Combat = Window:addTab('#PVP'),
-    Tab_6 = Window:addTab('#Teleport & Status'),
-    Tab_7 = Window:addTab('#Shop'),
-    Tab_8 = Window:addTab('#Misc')
+    Tab_5 = Window:addTab('#Teleport & Status'),
+    Tab_6 = Window:addTab('#Shop'),
+    Tab_7 = Window:addTab('#Misc')
     
 }
 
 local Home_Left = Tab.Tab_1:addSection() -- HOME LEFT SECTION
 local Changelog = Home_Left:addMenu("#Changelog")
 Changelog:addChangelog('Informações')
-
-local DojoQ = Tab.Tab_4:addSection()
-local Dojo = DojoQ:addMenu("#Dojo Quest")
 
 local Home_Right = Tab.Tab_1:addSection() -- HOME RIGHT SECTION
 local Main_Home = Home_Right:addMenu("#Home")
@@ -8941,26 +8937,3 @@ spawn(function()
         end
     end
 end)
-
-Dojo:addToggle("Auto Dojo Trainer", DojoTrainer, function(Value)
-    DojoTrainer = Value
-end)
-    spawn(function()
-        while wait(.1) do
-            if DojoTrainer then
-                if ByPassTP then
-                    BTP(CFrame.new(5870.40087890625, 1208.3154296875, 867.7071533203125))
-                else
-                    Tween(CFrame.new(5870.40087890625, 1208.3154296875, 867.7071533203125))
-                end
-                wait(2)
-                game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/InteractDragonQuest")
-                wait(15)
-                Tween(CFrame.new(-16548.8164, 55.6059914, -172.8125, 0.213092566, -0, -0.977032006, 0, 1, -0, 0.977032006, 0, 0.213092566))
-                wait(5)
-                LevelFarmQuest = true
-                wait(55)
-                LevelFarmQuest = false
-            end
-        end
-    end)
