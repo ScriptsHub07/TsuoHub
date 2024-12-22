@@ -8956,7 +8956,11 @@ end)
                 wait(2)
                 game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/InteractDragonQuest")
                 wait(15)
-                BTP(CFrame.new(-16548.8164, 55.6059914, -172.8125, 0.213092566, -0, -0.977032006, 0, 1, -0, 0.977032006, 0, 0.213092566))
+                Tween(CFrame.new(-16548.8164, 55.6059914, -172.8125, 0.213092566, -0, -0.977032006, 0, 1, -0, 0.977032006, 0, 0.213092566))
+                wait(5)
+                LevelFarmQuest = true
+                wait(55)
+                LevelFarmQuest = false
             end
         end
     end)
