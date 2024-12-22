@@ -1725,7 +1725,7 @@ spawn(function()
     end
 end)
 
---[[// Fast Attack
+Fast Attack
 local CombatFramework = require(game:GetService('Players').LocalPlayer.PlayerScripts.CombatFramework)
 
 function GetCurrentBlade()
@@ -1781,15 +1781,15 @@ function AttackNoCD()
             end)
         end
     end
-end]]
+end
 
---[[local FastAttack = true
+local FastAttack = true
 Main_Setting:addToggle('Fast Attack 1 (Selected Delay)', FastAttack, function(Value)
     FastAttack = Value
-end)]]
+end)
 
 
---[[spawn(function()
+spawn(function()
     while task.wait() do
         if FastAttack then
             local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
@@ -1802,34 +1802,7 @@ end)]]
             end)
         end
     end
-end)]]
-
---[[Main_Setting:addToggle('Fast Attack 2 (Without Selected Delay)', MobileFastAttack, function(Value)
-    MobileFastAttack = Value
 end)
-spawn(function()
-    while task.wait() do
-        if MobileFastAttack then
-            local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-            CameraShakerR:Stop()
-            pcall(function()
-                local CombatFrameworkLib = getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.PlayerModule.ControlModule))
-                local CmrFwLib = CombatFrameworkLib[2]
-                local activeController = CmrFwLib.activeController
-                
-                activeController.timeToNextAttack = 0
-                activeController.attacking = false
-                activeController.blocking = false
-                activeController.timeToNextBlock = 0
-                activeController.increment = 0
-                activeController.hitboxMagnitude = 100
-                activeController.focusStart = 0
-                activeController.humanoid.AutoRotate = 0
-                activeController.animator.anims.basic[1]:Play(0.01,0.01,0.01)
-            end)
-        end
-    end
-end)]]
 
 --// BRING MOBS
 function BringMonster(TargetName, TargetCFrame)
