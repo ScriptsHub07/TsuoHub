@@ -1730,7 +1730,6 @@ Main_Setting:addToggle('Fast Attack 1 (Selected Delay)', FastAttack, function(Va
     FastAttack = Value
 end)
 
-
 spawn(function()
     while task.wait() do
         if FastAttack then
