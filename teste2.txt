@@ -1726,7 +1726,7 @@ spawn(function()
 end)
 
 local FastAttack = true
-Main_Setting:addToggle('Fast Attack 1 (Selected Delay)', FastAttack, function(Value)
+Main_Setting:addToggle('Fast Attack (Selected Delay)', FastAttack, function(Value)
     FastAttack = Value
 end)
 
