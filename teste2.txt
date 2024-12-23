@@ -8372,136 +8372,331 @@ local Misc_Left = Tab.Tab_7:addSection()
 
 ----------------------------------------------------//----------------------------------------------------
 --// MISC RIGHT
-local Misc_2 = Misc_Left:addMenu('#Misc')
+local DojoQuest = Misc_Left:addMenu('#Dragon Update')
 
-Misc_2:addToggle('Dodge No CD', DodgewithoutCool, function(Value)
-    DodgewithoutCool = Value
-end)
-function NoCooldown()
-    for i,v in next, getgc() do
-        if typeof(v) == "function" then
-            if getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Dodge") then
-                for i2,v2 in next, getupvalues(v) do
-                    if tostring(v2) == "0.4" then
-                        setupvalue(v,i2,0)
-                    end
-                end
-            end
-        end
-    end
+function getAcc(BeltName)
+	for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+		if type(v) == "table" then
+			if v.Type == "Wear" then
+				if v.Name == BeltName then
+					return true
+				end
+			end
+		end
+	end
+	return false
 end
-spawn(function()
+local DojoQuestNpc = CFrame.new(5855.19629, 1208.32178, 872.713501, 0.606994748, -1.81058823e-09, -0.794705868, 5.72712722e-09, 1, 2.09605577e-09, 0.794705868, -5.82367621e-09, 0.606994748)
+
+DojoQuest:addLabel('Get quest first')
+DojoQuest:addLabel('')
+
+task.spawn(function()
     while wait() do
-        if DodgewithoutCool then
-            pcall(function()
-                NoCooldown()
-            end)
+        if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (White)")
+            DojoQuest:Refresh("Kill 20 NPC on Quest")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Yellow)")
+            DojoQuest:Refresh("Kill 5 Shark/Piranha/Fishcrew Member")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Orange)")
+            DojoQuest:Refresh("Complete 1 Trade with another Player")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Green)")
+            DojoQuest:Refresh("Travel to Sea Danger Level 4-6 \n and stay there for 5 minutes.")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (true)") == false and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Blue)")
+            DojoQuest:Refresh("Collect a fruit dropped by another player")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Purple)")
+            DojoQuest:Refresh("Kill 3 Elite Pirates")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Red)")
+            DojoQuest:Refresh("Defeat a Terrorshark or Rumbling Waters Sea Event.")
+
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == true and getAcc("Dojo Belt (Black)") == false then
+            DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Black)")
+            DojoQuest:Refresh("Complete Prehistoric Island event \n and collect 3 Dinosaur bones")
+
         end
     end
 end)
 
-Misc_2:addToggle('Infinite Energy', InfiniteAbility, function(Value)
-    InfiniteAbility = Value
-end)
-function InfinityEnergy()
-    game:GetService('Players').LocalPlayer.Character.Energy.Changed:connect(function()
-        if InfiniteAbility then
-            game:GetService('Players').LocalPlayer.Character.Energy.Value = game:GetService('Players').LocalPlayer.Character.Energy.MaxValue
-        end 
-    end)
-end
-spawn(function()
-    while wait() do
-        if InfiniteAbility then
-            pcall(function()
-                InfinityEnergy()
-            end)
-        end
-    end
-end)
-
-Misc_2:addToggle('Infinite Geppo', InfiniteGeppo, function(Value)
-    InfiniteGeppo = Value
-end)
-spawn(function()
-    while task.wait(1) do
-        if InfiniteGeppo then
-            pcall(function()
-                for i,v in next, getgc() do
-                    if getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Geppo") then
-                        for i2,v2 in next, getupvalues(v) do
-                            if tostring(v2) == "0" then
-                                repeat wait(.1)
-                                    setupvalue(v,i2,0)
-                                until not InfiniteGeppo or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-Misc_2:addToggle('Infinite Soru', InfiniteSoru, function(Value)
-    InfiniteSoru = Value
-end)
-spawn(function()
-    while task.wait(1) do
-        if InfiniteSoru and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil  then
-            pcall(function()
-                for i,v in next, getgc() do
-                    if getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Soru") then
-                        for i2,v2 in pairs(debug.getupvalues(v)) do
-                            if type(v2) == 'table' then
-                                if v2.LastUse then
-                                    repeat task.wait(.1)
-                                        setupvalue(v, i2, {LastAfter = 0,LastUse = 0})
-                                    until not InfiniteSoru or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-WalkOnWater = true
-Misc_2:addToggle('Walk on Water', WalkOnWater, function(Value)
-    WalkOnWater = Value
+DojoQuest:addToggle('Pegar Quest Dojo Trainer', DojoRequestQuest, function(Value)
+    DojoRequestQuest = Value
+    CancelTween(DojoRequestQuest)
 end)
 spawn(function()
     while task.wait() do
-        if WalkOnWater then
-            game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,112,1000)
-        else
-            game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,80,1000)
+        if DojoRequestQuest then
+            pcall(function()
+                if ByPassTP then
+                    BTP(DojoQuestNpc)
+                elseif not ByPassTP then
+                    Tween(DojoQuestNpc)
+                end
+            
+                if (DojoQuestNpc.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                    local ohTable1 = {
+                        ["NPC"] = "Dojo Trainer",
+                        ["Command"] = "RequestQuest"
+                    }
+                    
+                    game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable1)
+
+                    wait(1)
+
+                    if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (White)")
+                        DojoQuest:Refresh("Kill 20 NPC on Quest")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Yellow)")
+                        DojoQuest:Refresh("Kill 5 Shark/Piranha/Fishcrew Member")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Orange)")
+                        DojoQuest:Refresh("Complete 1 Trade with another Player")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Green)")
+                        DojoQuest:Refresh("Travel to Sea Danger Level 4-6 \n and stay there for 5 minutes.")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (true)") == false and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Blue)")
+                        DojoQuest:Refresh("Collect a fruit dropped by another player")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Purple)")
+                        DojoQuest:Refresh("Kill 3 Elite Pirates")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Red)")
+                        DojoQuest:Refresh("Defeat a Terrorshark or Rumbling Waters Sea Event.")
+            
+                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == true and getAcc("Dojo Belt (Black)") == false then
+                        DojoQuest:Refresh("Dojo Progress : Get Dojo Belt (Black)")
+                        DojoQuest:Refresh("Complete Prehistoric Island event \n and collect 3 Dinosaur bones")
+            
+                    end
+                end
+            end)
         end
     end
 end)
 
-Misc_2:addToggle('Remove Fog', _G.Remove_Fog, function(Value)
-    _G.Remove_Fog = Value
+DojoQuest:addToggle('Resgatar recompensa do Dojo Trainer', DojoClaimQuest, function(Value)
+    DojoClaimQuest = Value
+    CancelTween(DojoClaimQuest)
+end)
+spawn(function()
+    while task.wait() do
+        if DojoClaimQuest then
+            pcall(function()
+                if ByPassTP then
+                    BTP(DojoQuestNpc)
+                elseif not ByPassTP then
+                    Tween(DojoQuestNpc)
+                end
+            
+                if (DojoQuestNpc.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                    local ohTable1 = {
+                        ["NPC"] = "Dojo Trainer",
+                        ["Command"] = "ClaimQuest"
+                    }
+                    
+                    game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable1)
+                end
 
-    if not _G.Remove_Fog then return end
-    while _G.Remove_Fog do wait()
-        game.Lighting.FogEnd = 9e9
-        if not _G.Remove_Fog then
-            game.Lighting.FogEnd = 2500
+            end)
         end
     end
 end)
 
-Misc_2:addToggle('White Screen', _G.White_Screen, function(Value)
-    _G.White_Screen = Value
-    if _G.White_Screen then
-        game:GetService("RunService"):Set3dRenderingEnabled(false)
-    else
-        game:GetService("RunService"):Set3dRenderingEnabled(true)
+
+DojoQuest:addToggle("Ir para Dojo Trainer", DojoQuestEnable, function(Value)
+    DojoQuestEnable = Value
+    StopBoats(DojoQuestEnable)
+    CancelTween(DojoQuestEnable)
+end)
+
+spawn(function()
+    while task.wait() do
+        if DojoQuestEnable then
+             
+            pcall(function()
+                
+                if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+                    
+                    CheckLevel()
+                    if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                        if ByPassTP then
+                            BTP(CFrameQ)
+                        elseif not ByPassTP then
+                            Tween(CFrameQ)
+                        end
+                        if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                            wait(1)
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+                        end
+
+                    elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                        if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    if v.Name == Ms then
+                                        repeat game:GetService("RunService").Heartbeat:wait()
+                                            EquipTool(SelectWeapon)
+                                            Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                            v.HumanoidRootPart.CanCollide = false
+                                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                            v.HumanoidRootPart.Transparency = 1
+                                            Dojo_Farm_Name = v.Name
+                                            Dojo_Farm_CFrame = v.HumanoidRootPart.CFrame
+                                        until not DojoQuestEnable or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    end
+                                end
+                            end
+                        else
+                            Tween(CFrameMon)
+                        end
+                    end
+
+                elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+
+                    Tween(CFrame.new(-12575.7666, 336.955719, -7556.80029, 0.0528766066, -7.96442023e-08, -0.998601079, 2.11768718e-08, 1, -7.86344501e-08, 0.998601079, -1.69893237e-08, 0.0528766066))
+
+                elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
+                                    repeat game:GetService("RunService").Heartbeat:wait()
+                                        EquipTool(SelectWeapon)
+                                        Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                        v.HumanoidRootPart.Transparency = 1
+                                    until DojoQuestEnable == false or v.Humanoid.Health <= 0 or not v.Parent
+                                end
+                            end
+                        end
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+                            if ByPassTP then
+                                BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame)
+                            else
+                                Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame)
+                            end
+                        elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                            if ByPassTP then
+                                BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame)
+                            else
+                                Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame)
+                            end
+                        elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                            if ByPassTP then
+                                BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame)
+                            else
+                                Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame)
+                            end
+                        end
+                    end
+                    
+                end
+            end)
+        end
     end
 end)
+
+DojoQuest:addToggle("Derrotar Npc da Quest", BlazeEmberFarm, function(Value)
+    BlazeEmberFarm = Value
+    CancelTween(BlazeEmberFarm)
+end)
+spawn(function()
+    while task.wait() do
+        if BlazeEmberFarm then
+            pcall(function()
+                if game:GetService('Workspace').Enemies:FindFirstChild('Ghost') or game:GetService('Workspace').Enemies:FindFirstChild('Hydra Enforcer') or game:GetService('Workspace').Enemies:FindFirstChild('Venomous Assailant') then
+                    for i,v in pairs(game:GetService('Workspace').Enemies:GetChildren()) do
+                        if v.Name == 'Ghost' or v.Name == 'Hydra Enforcer' or v.Name == 'Venomous Assailant' then
+                            if v:FindFirstChild('Humanoid') and v:FindFirstChild('HumanoidRootPart') and v.Humanoid.Health > 0 then
+                                repeat game:GetService("RunService").Heartbeat:wait()
+                                    
+                                    EquipTool(SelectWeapon)
+                                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.Transparency = 1
+                                    BlazeEmber_Farm_Name = v.Name
+                                    BlazeEmber_Farm_CFrame = v.HumanoidRootPart.CFrame
+                                   
+                                until not BlazeEmberFarm or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+                            end
+                        end
+                    end
+                else
+                    Tween(CFrame.new(5394.36475, 1082.71057, 561.993958, -0.62453711, 3.17826405e-08, -0.780995131, 6.77530991e-08, 1, -1.34849545e-08, 0.780995131, -6.13366922e-08, -0.62453711))
+                end
+            end)
+        end
+    end
+end)
+
+DojoQuest:addToggle("Auto Coletar Blaze", ColectBlazeEmber, function(Value)
+    ColectBlazeEmber = Value
+end)
+
+spawn(function()
+    while task.wait() do
+        if ColectBlazeEmber then
+            pcall(function()
+                for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                    if v.Name == 'EmberTemplate' then
+                        v.Part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+DojoQuest:addButton('Teleportar para Dragon Hunter', function()
+    Tween(CFrame.new(5865.80811, 1209.50269, 811.746582, -0.675207436, -6.76664627e-08, 0.737627923, 8.33632186e-09, 1, 9.93661047e-08, -0.737627923, 7.32418357e-08, -0.675207436))
+end)
+
+DojoQuest:addButton('Teleportar para Dragon Wizzard', function()
+    Tween(CFrame.new(5775.35059, 1209.50269, 805.679993, -0.696588516, -7.57756808e-08, 0.717470825, -7.6549334e-08, 1, 3.12936663e-08, -0.717470825, -3.31231078e-08, -0.696588516))
+end)
+
+DojoQuest:addToggle("Procurar Ilha Vulcão", TeleportVulcan, function(Value)
+    TeleportVulcan = Value
+    AutoSail = Value
+    CancelTween(AutoSail)
+    StopBoatsTween(AutoSail)
+    CancelTween(TeleportVulcan)
+end)
+spawn(function()
+    while task.wait() do
+        if TeleportVulcan then
+            if game:GetService("Workspace").Map:FindFirstChild("PrehistoricIsland") then
+                _G.CenterPI = game:GetService("Workspace").Map.PrehistoricIsland.Center.Position
+                Tween(CFrame.new(_G.CenterPI))
+                AutoSail = false
+            end
+        end
+    end
+end)
+
 
 ----------------------------------------------------//----------------------------------------------------
 local Misc_1 = Misc_Left:addMenu('#Misc')
@@ -8969,314 +9164,4 @@ spawn(function()
             end)
         end
     end
-end)
-
-local DracoLeft = Tab.Tab_Dragon:addSection()
-
-local DracoRight = Tab.Tab_Dragon:addSection()
-
-local DojoQuest = DracoLeft:addMenu("#Quest Dragon Trainer")
-
-function getAcc(BeltName)
-	for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
-		if type(v) == "table" then
-			if v.Type == "Wear" then
-				if v.Name == BeltName then
-					return true
-				end
-			end
-		end
-	end
-	return false
-end
-local DojoQuestNpc = CFrame.new(5855.19629, 1208.32178, 872.713501, 0.606994748, -1.81058823e-09, -0.794705868, 5.72712722e-09, 1, 2.09605577e-09, 0.794705868, -5.82367621e-09, 0.606994748)
-
-local DojoProgessCheck = DracoLeft:addLabel('Get quest first')
-local DojoInfoCheck = DracoLeft:addLabel('')
-
-task.spawn(function()
-    while wait() do
-        if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (White)")
-            DojoInfoCheck:Refresh("Kill 20 NPC on Quest")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Yellow)")
-            DojoInfoCheck:Refresh("Kill 5 Shark/Piranha/Fishcrew Member")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Orange)")
-            DojoInfoCheck:Refresh("Complete 1 Trade with another Player")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Green)")
-            DojoInfoCheck:Refresh("Travel to Sea Danger Level 4-6 \n and stay there for 5 minutes.")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (true)") == false and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Blue)")
-            DojoInfoCheck:Refresh("Collect a fruit dropped by another player")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Purple)")
-            DojoInfoCheck:Refresh("Kill 3 Elite Pirates")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Red)")
-            DojoInfoCheck:Refresh("Defeat a Terrorshark or Rumbling Waters Sea Event.")
-
-        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == true and getAcc("Dojo Belt (Black)") == false then
-            DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Black)")
-            DojoInfoCheck:Refresh("Complete Prehistoric Island event \n and collect 3 Dinosaur bones")
-
-        end
-    end
-end)
-
-DracoLeft:addToggle('Pegar Quest Dojo Trainer', DojoRequestQuest, function(Value)
-    DojoRequestQuest = Value
-    CancelTween(DojoRequestQuest)
-end)
-spawn(function()
-    while task.wait() do
-        if DojoRequestQuest then
-            pcall(function()
-                if ByPassTP then
-                    BTP(DojoQuestNpc)
-                elseif not ByPassTP then
-                    Tween(DojoQuestNpc)
-                end
-            
-                if (DojoQuestNpc.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                    local ohTable1 = {
-                        ["NPC"] = "Dojo Trainer",
-                        ["Command"] = "RequestQuest"
-                    }
-                    
-                    game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable1)
-
-                    wait(1)
-
-                    if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (White)")
-                        DojoInfoCheck:Refresh("Kill 20 NPC on Quest")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Yellow)")
-                        DojoInfoCheck:Refresh("Kill 5 Shark/Piranha/Fishcrew Member")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Orange)")
-                        DojoInfoCheck:Refresh("Complete 1 Trade with another Player")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Green)")
-                        DojoInfoCheck:Refresh("Travel to Sea Danger Level 4-6 \n and stay there for 5 minutes.")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (true)") == false and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Blue)")
-                        DojoInfoCheck:Refresh("Collect a fruit dropped by another player")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Purple)")
-                        DojoInfoCheck:Refresh("Kill 3 Elite Pirates")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Red)")
-                        DojoInfoCheck:Refresh("Defeat a Terrorshark or Rumbling Waters Sea Event.")
-            
-                    elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == true and getAcc("Dojo Belt (Black)") == false then
-                        DojoProgessCheck:Refresh("Dojo Progress : Get Dojo Belt (Black)")
-                        DojoInfoCheck:Refresh("Complete Prehistoric Island event \n and collect 3 Dinosaur bones")
-            
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-DojoQuest:addToggle('Resgatar recompensa do Dojo Trainer', DojoClaimQuest, function(Value)
-    DojoClaimQuest = Value
-    CancelTween(DojoClaimQuest)
-end)
-spawn(function()
-    while task.wait() do
-        if DojoClaimQuest then
-            pcall(function()
-                if ByPassTP then
-                    BTP(DojoQuestNpc)
-                elseif not ByPassTP then
-                    Tween(DojoQuestNpc)
-                end
-            
-                if (DojoQuestNpc.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                    local ohTable1 = {
-                        ["NPC"] = "Dojo Trainer",
-                        ["Command"] = "ClaimQuest"
-                    }
-                    
-                    game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable1)
-                end
-
-            end)
-        end
-    end
-end)
-
-
-DojoQuest:addToggle("Ir para Dojo Trainer", DojoQuestEnable, function(Value)
-    DojoQuestEnable = Value
-    StopBoats(DojoQuestEnable)
-    CancelTween(DojoQuestEnable)
-end)
-
-spawn(function()
-    while task.wait() do
-        if DojoQuestEnable then
-             
-            pcall(function()
-                
-                if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-                    
-                    CheckLevel()
-                    if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                        if ByPassTP then
-                            BTP(CFrameQ)
-                        elseif not ByPassTP then
-                            Tween(CFrameQ)
-                        end
-                        if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                            wait(1)
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-                        end
-
-                    elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                        if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
-                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    if v.Name == Ms then
-                                        repeat game:GetService("RunService").Heartbeat:wait()
-                                            EquipTool(SelectWeapon)
-                                            Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-                                            v.HumanoidRootPart.CanCollide = false
-                                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                                            v.HumanoidRootPart.Transparency = 1
-                                            Dojo_Farm_Name = v.Name
-                                            Dojo_Farm_CFrame = v.HumanoidRootPart.CFrame
-                                        until not DojoQuestEnable or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                    end
-                                end
-                            end
-                        else
-                            Tween(CFrameMon)
-                        end
-                    end
-
-                elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-
-                    Tween(CFrame.new(-12575.7666, 336.955719, -7556.80029, 0.0528766066, -7.96442023e-08, -0.998601079, 2.11768718e-08, 1, -7.86344501e-08, 0.998601079, -1.69893237e-08, 0.0528766066))
-
-                elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
-
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
-                                    repeat game:GetService("RunService").Heartbeat:wait()
-                                        EquipTool(SelectWeapon)
-                                        Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                                        v.HumanoidRootPart.Transparency = 1
-                                    until DojoQuestEnable == false or v.Humanoid.Health <= 0 or not v.Parent
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
-                            if ByPassTP then
-                                BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame)
-                            else
-                                Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame)
-                            end
-                        elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
-                            if ByPassTP then
-                                BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame)
-                            else
-                                Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame)
-                            end
-                        elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-                            if ByPassTP then
-                                BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame)
-                            else
-                                Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame)
-                            end
-                        end
-                    end
-                    
-                end
-            end)
-        end
-    end
-end)
-
-DojoQuest:addToggle("Derrotar Npc da Quest", BlazeEmberFarm, function(Value)
-    BlazeEmberFarm = Value
-    CancelTween(BlazeEmberFarm)
-end)
-spawn(function()
-    while task.wait() do
-        if BlazeEmberFarm then
-            pcall(function()
-                if game:GetService('Workspace').Enemies:FindFirstChild('Ghost') or game:GetService('Workspace').Enemies:FindFirstChild('Hydra Enforcer') or game:GetService('Workspace').Enemies:FindFirstChild('Venomous Assailant') then
-                    for i,v in pairs(game:GetService('Workspace').Enemies:GetChildren()) do
-                        if v.Name == 'Ghost' or v.Name == 'Hydra Enforcer' or v.Name == 'Venomous Assailant' then
-                            if v:FindFirstChild('Humanoid') and v:FindFirstChild('HumanoidRootPart') and v.Humanoid.Health > 0 then
-                                repeat game:GetService("RunService").Heartbeat:wait()
-                                    
-                                    EquipTool(SelectWeapon)
-                                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-                                    v.HumanoidRootPart.CanCollide = false
-                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                                    v.HumanoidRootPart.Transparency = 1
-                                    BlazeEmber_Farm_Name = v.Name
-                                    BlazeEmber_Farm_CFrame = v.HumanoidRootPart.CFrame
-                                   
-                                until not BlazeEmberFarm or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
-                            end
-                        end
-                    end
-                else
-                    Tween(CFrame.new(5394.36475, 1082.71057, 561.993958, -0.62453711, 3.17826405e-08, -0.780995131, 6.77530991e-08, 1, -1.34849545e-08, 0.780995131, -6.13366922e-08, -0.62453711))
-                end
-            end)
-        end
-    end
-end)
-
-DojoQuest:addToggle("Auto Coletar Blaze", ColectBlazeEmber, function(Value)
-    ColectBlazeEmber = Value
-end)
-
-spawn(function()
-    while task.wait() do
-        if ColectBlazeEmber then
-            pcall(function()
-                for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-                    if v.Name == 'EmberTemplate' then
-                        v.Part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                    end
-                end
-            end)
-        end
-    end
-end)
-
-DojoQuest:addButton('Teleportar para Dragon Hunter', function()
-    Tween(CFrame.new(5865.80811, 1209.50269, 811.746582, -0.675207436, -6.76664627e-08, 0.737627923, 8.33632186e-09, 1, 9.93661047e-08, -0.737627923, 7.32418357e-08, -0.675207436))
-end)
-
-DojoQuest:addButton('Teleportar para Dragon Wizzard', function()
-    Tween(CFrame.new(5775.35059, 1209.50269, 805.679993, -0.696588516, -7.57756808e-08, 0.717470825, -7.6549334e-08, 1, 3.12936663e-08, -0.717470825, -3.31231078e-08, -0.696588516))
 end)
