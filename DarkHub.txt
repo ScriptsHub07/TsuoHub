@@ -184,7 +184,7 @@ function Library:CreateWindow(hubname)
     end)
 
     Discord.MouseButton1Click:Connect(function()
-        (setclipboard or toclipboard)("Dark x")
+        (setclipboard or toclipboard)("Tsuo")
         wait(.1)
         game:GetService("StarterGui"):SetCore("SendNotification",{
             Title = "Discord",
