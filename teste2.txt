@@ -24,12 +24,6 @@ local Home_Left = Tab.Tab_1:addSection()
 local Changelog = Home_Left:addMenu("#Changelog")
 Changelog:addChangelog('[Tsuo Hub | Adicionado Dojo Quest]')
 
-local DracoLeft = Tab.Tab_Dragon:addSection()
-
-
-local DracoRight = Tab.Tab_Dragon:addSection()
-
-
 local Home_Right = Tab.Tab_1:addSection()
 local Main_Home = Home_Right:addMenu("#Home")
 
@@ -8977,6 +8971,10 @@ spawn(function()
     end
 end)
 
+local DracoLeft = Tab.Tab_Dragon:addSection()
+
+local DracoRight = Tab.Tab_Dragon:addSection()
+
 local DojoQuest = DracoLeft:addMenu("#Quest Dragon Trainer")
 
 function getAcc(BeltName)
@@ -9281,25 +9279,4 @@ end)
 
 DojoQuest:addButton('Teleportar para Dragon Wizzard', function()
     Tween(CFrame.new(5775.35059, 1209.50269, 805.679993, -0.696588516, -7.57756808e-08, 0.717470825, -7.6549334e-08, 1, 3.12936663e-08, -0.717470825, -3.31231078e-08, -0.696588516))
-end)
-
-local Vulcan = DracoRight:addMenu("#Ilha Pré Historica")
-
-Vulcan:addToggle("Procurar Ilha Vulcão", TeleportVulcan, function(Value)
-    TeleportVulcan = Value
-    AutoSail = Value
-    CancelTween(AutoSail)
-    StopBoatsTween(AutoSail)
-    CancelTween(TeleportVulcan)
-end)
-spawn(function()
-    while task.wait() do
-        if TeleportVulcan then
-            if game:GetService("Workspace").Map:FindFirstChild("PrehistoricIsland") then
-                _G.CenterPI = game:GetService("Workspace").Map.PrehistoricIsland.Center.Position
-                Tween(CFrame.new(_G.CenterPI))
-                AutoSail = false
-            end
-        end
-    end
 end)
