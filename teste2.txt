@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsHub07/DarkHub/refs/heads/main/DarkHub.txt"))() -- LIBRARY
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsHub07/DarkHub/refs/heads/main/DarkHub.txt"))()
 
 
 local Window = Library:CreateWindow('Tsuo Hub')
@@ -10,6 +10,7 @@ local Tab = {
     Tab_SubFarm = Window:addTab('#Subs Farm'),
     Tab_3 = Window:addTab('#Quest'),
     Tab_Sea = Window:addTab('#Sea Event'),
+    Tab_Dragon = Window:addTab('#Dragon Update'),
     Tab_RaceV4 = Window:addTab('#Race V4'),
     Tab_4 = Window:addTab('#Raids'),
     Tab_Combat = Window:addTab('#PVP'),
@@ -19,12 +20,17 @@ local Tab = {
     
 }
 
-local Home_Left = Tab.Tab_1:addSection() -- HOME LEFT SECTION
+local Home_Left = Tab.Tab_1:addSection()
 local Changelog = Home_Left:addMenu("#Changelog")
 Changelog:addChangelog('[Tsuo Hub | Adicionado Dojo Quest]')
 
+local DracoLeft = Tab.Tab_Dragon:addSection()
 
-local Home_Right = Tab.Tab_1:addSection() -- HOME RIGHT SECTION
+
+local DracoRight = Tab.Tab_Dragon:addSection()
+
+
+local Home_Right = Tab.Tab_1:addSection()
 local Main_Home = Home_Right:addMenu("#Home")
 
 getgenv().WalkSpeedValue = 26
@@ -279,9 +285,6 @@ Main_Home:addButton("Destroy GUI", function()
 end)
 
 ----------------------------------------------------//----------------------------------------------------
---// PATH 
---[[wait(1)
-loadstring(game:HttpGet('https://raw.githubusercontent.com/S4nZz/bt_project/main/script'))() ]]
 
 if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
     repeat wait()
@@ -303,7 +306,6 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseT
     until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 end
 
---// World Check
 First_Sea = false
 Second_Sea = false
 Third_Sea = false
@@ -316,7 +318,6 @@ elseif placeId == 7449423635 then
     Third_Sea = true
 end
 
---// CHECK MONSTER
 function CheckLevel()
     local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
     if First_Sea then
@@ -1630,19 +1631,14 @@ Main_Setting:addToggle('Fast Attack', FastAttack, function(Value)
 end)
 
 
-spawn(function()
-    while task.wait() do
-        if FastAttack then
-            local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-            CameraShakerR:Stop()
-
-            pcall(function()
-                repeat task.wait(FastAttackDelay)
-                    AttackNoCD()
-                until not FastAttack
-            end)
-        end
-    end
+task.spawn(function()
+	pcall(function()
+	while task.wait(FastAttackDelay) do
+		if FastAttack and AttackList then
+			AttackFunction()
+		   end
+		end
+	end)
 end)
 
 --// BRING MOBS
@@ -1661,7 +1657,6 @@ function BringMonster(TargetName, TargetCFrame)
                     if v.Humanoid:FindFirstChild("Animator") then
                         v.Humanoid.Animator:Destroy()
                     end
-                    --sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                 end
             end
         end
@@ -4251,7 +4246,7 @@ end)
 --// SUBS FARM LEFT
 local Subs_Farm_Left = Tab.Tab_SubFarm:addSection()
 
-local DojoQuest = Subs_Farm_Left:addMenu("#Dragon Hunter")
+local DojoQuest = DracoLeft:addMenu("#Quest Dragon Trainer")
 
 function getAcc(BeltName)
 	for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
@@ -4267,8 +4262,8 @@ function getAcc(BeltName)
 end
 local DojoQuestNpc = CFrame.new(5855.19629, 1208.32178, 872.713501, 0.606994748, -1.81058823e-09, -0.794705868, 5.72712722e-09, 1, 2.09605577e-09, 0.794705868, -5.82367621e-09, 0.606994748)
 
-local DojoProgessCheck = DojoQuest:addLabel('Get quest first')
-local DojoInfoCheck = DojoQuest:addLabel('')
+local DojoProgessCheck = DracoLeft:addLabel('Get quest first')
+local DojoInfoCheck = DracoLeft:addLabel('')
 
 task.spawn(function()
     while wait() do
@@ -4308,7 +4303,7 @@ task.spawn(function()
     end
 end)
 
-DojoQuest:addToggle('Request Quest Dojo Trainer', DojoRequestQuest, function(Value)
+DracoLeft:addToggle('Pegar Quest Dojo Trainer', DojoRequestQuest, function(Value)
     DojoRequestQuest = Value
     CancelTween(DojoRequestQuest)
 end)
@@ -4371,7 +4366,7 @@ spawn(function()
     end
 end)
 
-DojoQuest:addToggle('Claim Quest Dojo Trainer', DojoClaimQuest, function(Value)
+DracoLeft:addToggle('Resgatar recompensa do Dojo Trainer', DojoClaimQuest, function(Value)
     DojoClaimQuest = Value
     CancelTween(DojoClaimQuest)
 end)
@@ -4400,7 +4395,7 @@ spawn(function()
 end)
 
 
-DojoQuest:addToggle("Run Dojo Trainer Quest", DojoQuestEnable, function(Value)
+DracoLeft:addToggle("Ir para Dojo Trainer", DojoQuestEnable, function(Value)
     DojoQuestEnable = Value
     StopBoats(DojoQuestEnable)
     CancelTween(DojoQuestEnable)
@@ -4497,7 +4492,7 @@ spawn(function()
     end
 end)
 
-DojoQuest:addToggle("Kill Ghost/Hydra/Venomous", BlazeEmberFarm, function(Value)
+DracoLeft:addToggle("Derrotar Npc da Quest", BlazeEmberFarm, function(Value)
     BlazeEmberFarm = Value
     CancelTween(BlazeEmberFarm)
 end)
@@ -4531,7 +4526,7 @@ spawn(function()
     end
 end)
 
-DojoQuest:addToggle("Auto Collect Blaze Ember", ColectBlazeEmber, function(Value)
+DracoLeft:addToggle("Auto Coletar Blaze", ColectBlazeEmber, function(Value)
     ColectBlazeEmber = Value
 end)
 
@@ -4549,11 +4544,11 @@ spawn(function()
     end
 end)
 
-DojoQuest:addButton('Teleport Dragon Hunter', function()
+DracoLeft:addButton('Teleportar para Dragon Hunter', function()
     Tween(CFrame.new(5865.80811, 1209.50269, 811.746582, -0.675207436, -6.76664627e-08, 0.737627923, 8.33632186e-09, 1, 9.93661047e-08, -0.737627923, 7.32418357e-08, -0.675207436))
 end)
 
-DojoQuest:addButton('Teleport Dragon Wizzard', function()
+DracoLeft:addButton('Teleportar para Dragon Wizzard', function()
     Tween(CFrame.new(5775.35059, 1209.50269, 805.679993, -0.696588516, -7.57756808e-08, 0.717470825, -7.6549334e-08, 1, 3.12936663e-08, -0.717470825, -3.31231078e-08, -0.696588516))
 end)
 
@@ -6894,7 +6889,6 @@ spawn(function()
                                         fireclickdetector(game:GetService("Workspace").Map["Haunted Castle"]["Lab Puzzle"].ColorFloor.Model.Part10.ClickDetector)
                                     else
                                         Quest3 = true
-                                        --Not Work Yet
                                     end
                                 else
                                     if game:GetService("Workspace").NPCs:FindFirstChild("Ghost") then
