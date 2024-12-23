@@ -1695,20 +1695,20 @@ spawn(function()
     end
 end)
 
-local AttackList = {"0.100 (Risk)", "0.165", "0.175 (Default)", "0.185", "0.200", "0.300", "0.500", "0.700 (Slow)"}
+local AttackList = {"0.100", "0.165", "0.175", "0.185", "0.200", "0.300", "0.500", "0.700"}
 
-FastAttackSelected = "0.175 (Default)"
+FastAttackSelected = "0.100"
 Main_Setting:addDropdown("Fast Attack Delay", FastAttackSelected, AttackList, function(Value)
     FastAttackSelected = Value
 end)
 
 spawn(function()
     while task.wait() do
-        if FastAttackSelected == "0.100 (Risk)" then
+        if FastAttackSelected == "0.100" then
             FastAttackDelay = 0.1
         elseif FastAttackSelected == "0.165" then
             FastAttackDelay = 0.165
-        elseif FastAttackSelected == "0.175 (Default)" then
+        elseif FastAttackSelected == "0.175" then
             FastAttackDelay = 0.175
         elseif FastAttackSelected == "0.185" then
             FastAttackDelay = 0.185
@@ -1718,14 +1718,14 @@ spawn(function()
             FastAttackDelay = 0.3
         elseif FastAttackSelected == "0.500" then
             FastAttackDelay = 0.5
-        elseif FastAttackSelected == "0.700 (Slow)" then
+        elseif FastAttackSelected == "0.700" then
             FastAttackDelay = 0.7
         end
     end
 end)
 
 local FastAttack = true
-Main_Setting:addToggle('Fast Attack (Selected Delay)', FastAttack, function(Value)
+Main_Setting:addToggle('Fast Attack', FastAttack, function(Value)
     FastAttack = Value
 end)
 
@@ -1768,8 +1768,8 @@ function BringMonster(TargetName, TargetCFrame)
     pcall(sethiddenproperty, game.Players.LocalPlayer, "SimulationRadius", math.huge)
 end
 
-bringfrec = 250
-Main_Setting:addTextbox("Bring Mobs Distance (Default 250)", bringfrec, function(Value)
+bringfrec = 500
+Main_Setting:addTextbox("Bring Mobs Distance", bringfrec, function(Value)
     bringfrec = Value
 end)
 
