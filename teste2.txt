@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsHub07/DarkHub/refs/heads/main/DarkHub.txt"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsHub07/DarkHub/refs/heads/main/DarkHub.txt"))() -- LIBRARY
 
 
 local Window = Library:CreateWindow('Tsuo Hub')
@@ -2491,9 +2491,9 @@ local MirageCheck = IslandInfo:addLabel("")
 spawn(function()
 	while task.wait() do
 		if game.Workspace._WorldOrigin.Locations:FindFirstChild("Mirage Island") then
-            MirageCheck:Refresh("Mirage Island : Spawn âœ…")
+            MirageCheck:Refresh("Mirage Island : Spawn")
         else
-            MirageCheck:Refresh("Mirage Island : Not Spawn âŒ")
+            MirageCheck:Refresh("Mirage Island : Not Spawn")
         end
 	end
 end)
@@ -2502,9 +2502,9 @@ local KitsuneCheck = IslandInfo:addLabel("")
 spawn(function()
 	while task.wait() do
 		if game.Workspace._WorldOrigin.Locations:FindFirstChild("Kitsune Island") then
-            KitsuneCheck:Refresh("Kitsune Island : Spawn âœ…")
+            KitsuneCheck:Refresh("Kitsune Island : Spawn")
         else
-            KitsuneCheck:Refresh("Kitsune Island : Not Spawn âŒ")
+            KitsuneCheck:Refresh("Kitsune Island : Not Spawn")
         end
 	end
 end)
@@ -2513,17 +2513,17 @@ local MoonCheck = IslandInfo:addLabel("")
 spawn(function()
     while wait() do
         if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ‘ 100%")
+            MoonCheck:Refresh("Moon Status : 100%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149052" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ’ 75%")
+            MoonCheck:Refresh("Moon Status : 75%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709143733" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ“ 50%")
+            MoonCheck:Refresh("Moon Status : 50%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709150401" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ— 25%")
+            MoonCheck:Refresh("Moon Status : 25%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149680" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ– 15%")
+            MoonCheck:Refresh("Moon Status : 15%")
         else
-            MoonCheck:Refresh("Moon Status : ðŸŒš 0%")
+            MoonCheck:Refresh("Moon Status : 0%")
         end
     end
 end)
@@ -6062,6 +6062,7 @@ spawn(function()
         end
     end
 end)
+
 Sword_Wuest:addToggle('Auto Yama', AutoYama, function(Value)
     AutoYama = Value
     CancelTween(AutoYama)
@@ -6225,15 +6226,15 @@ end
 spawn(function()
     while task.wait() do
         if GetWeaponInventory("Tushita") == true then
-            TushitaSword:Refresh("Tushita Sword : Have âœ…")
+            TushitaSword:Refresh("Tushita Sword : Have")
         elseif GetWeaponInventory("Tushita") == false then
-            TushitaSword:Refresh("Tushita Sword : Not Have âŒ")
+            TushitaSword:Refresh("Tushita Sword : Not Have")
         end
 
         if GetWeaponInventory("Yama") == true then
-            YamaSword:Refresh("Yama Sword : Have âœ…")
+            YamaSword:Refresh("Yama Sword : Have")
         elseif GetWeaponInventory("Yama") == false then
-            YamaSword:Refresh("Yama Sword : Not Have âŒ")
+            YamaSword:Refresh("Yama Sword : Not Have")
         end
     end
 end)
@@ -8244,7 +8245,7 @@ RaceFragShop:addButton("Race Ghoul [ $100 Ectoplasm ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args2))
 end)
 
-RaceFragShop:addButton("Cyborg [ $??? ]", function()
+RaceFragShop:addButton("Cyborg [ f2500 Fragments ]", function()
     local args = {
         [1] = "CyborgTrainer",
         [2] = "Buy"
@@ -8252,32 +8253,12 @@ RaceFragShop:addButton("Cyborg [ $??? ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
-RaceFragShop:addButton("Suprise Bone [ ðŸ¦´50 Bone ]", function()
+RaceFragShop:addButton("Suprise Bone [ 50 Bone ]", function()
     local args = {
         [1] = "Bones",
         [2] = "Buy",
         [3] = 1,
         [4] = 1
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end)
-
-RaceFragShop:addButton("Stat Refund [ ðŸ¦´50 Bone ]", function()
-    local args = {
-        [1] = "Bones",
-        [2] = "Buy",
-        [3] = 1,
-        [4] = 2
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end)
-
-RaceFragShop:addButton("Race Reroll [ ðŸ¦´50 Bone ]", function()
-    local args = {
-        [1] = "Bones",
-        [2] = "Buy",
-        [3] = 1,
-        [4] = 3
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
