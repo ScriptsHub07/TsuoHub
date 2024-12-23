@@ -10,7 +10,6 @@ local Tab = {
     Tab_SubFarm = Window:addTab('#Subs Farm'),
     Tab_3 = Window:addTab('#Quest'),
     Tab_Sea = Window:addTab('#Sea Event'),
-    Tab_Dragon = Window:addTab('#Dragon Update'),
     Tab_RaceV4 = Window:addTab('#Race V4'),
     Tab_4 = Window:addTab('#Raids'),
     Tab_Combat = Window:addTab('#PVP'),
@@ -1314,32 +1313,6 @@ function MaterialMon()
     end
 end
 
-
-
---// Bypass
---[[function BypassCheck()
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
-        if v:IsA("LocalScript") then
-            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
-                v:Destroy()
-            end
-        end
-    end
-    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
-        if v:IsA("LocalScript") then
-            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
-                v:Destroy()
-            end
-        end
-    end
-    for i,v in pairs(game:GetService('Workspace'):GetChildren()) do
-        if v.Name == "Script" then
-            v:Destroy()
-        end
-    end
-end
-BypassCheck()]]
-
 --// EQUIP WEAPON 
 function EquipTool(Tool)
     pcall(function()
@@ -1402,8 +1375,6 @@ end
 
 --// AUTO CLICK
 function AutoClick()
-    --game:GetService('VirtualUser'):CaptureController()
-    --game:GetService('VirtualUser'):Button1Down(Vector2.new(1280, 672))
 end
 
 function AutoClick2()
@@ -2054,9 +2025,7 @@ local TikiPost = CFrame.new(-16192.5742, 11.0552588, 1741.49121, 0.927989781, 0,
 spawn(function()
     while task.wait() do
         if AutoSail then
-            
-            --local RoughSeaPos = CFrame.new(-47041.6641, 10.8365746, -6858.74072, 0.703071356, -0.0286799595, 0.710540712, 0.0407584943, 0.999169052, -2.41380471e-09, -0.709950268, 0.0289605707, 0.703656077)
-            pcall(function()
+                pcall(function()
                 CheckSea()
 
                 if game:GetService("Workspace").Boats:FindFirstChild(BoatSelected) then
