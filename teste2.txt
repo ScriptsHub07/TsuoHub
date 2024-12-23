@@ -9032,7 +9032,7 @@ task.spawn(function()
     end
 end)
 
-DojoQuest:addToggle('Pegar Quest Dojo Trainer', DojoRequestQuest, function(Value)
+DracoLeft:addToggle('Pegar Quest Dojo Trainer', DojoRequestQuest, function(Value)
     DojoRequestQuest = Value
     CancelTween(DojoRequestQuest)
 end)
