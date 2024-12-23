@@ -10,12 +10,12 @@ local Tab = {
     Tab_SubFarm = Window:addTab('#Subs Farm'),
     Tab_3 = Window:addTab('#Quest'),
     Tab_Sea = Window:addTab('#Sea Event'),
+    Tab_draco = Window:addTab('#Dragon Update'),
     Tab_RaceV4 = Window:addTab('#Race V4'),
     Tab_4 = Window:addTab('#Raids'),
     Tab_Combat = Window:addTab('#PVP'),
     Tab_5 = Window:addTab('#Teleport & Status'),
-    Tab_6 = Window:addTab('#Shop'),
-    Tab_7 = Window:addTab('#Misc')
+    Tab_6 = Window:addTab('#Shop')
     
 }
 
@@ -8337,11 +8337,11 @@ end)
 
 ----------------------------------------------------//----------------------------------------------------
 --// MISC LEFT
-local Misc_Left = Tab.Tab_7:addSection()
+local Misc_Left = Tab.Tab_draco:addSection()
 
 ----------------------------------------------------//----------------------------------------------------
 --// MISC RIGHT
-local DojoQuest = Misc_Left:addMenu('#Dragon Update')
+local DojoQuest = Misc_Left:addMenu('#Dojo Quest')
 
 function getAcc(BeltName)
 	for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
@@ -8490,7 +8490,7 @@ spawn(function()
 end)
 
 
-DojoQuest:addToggle("Ir para Dojo Trainer", DojoQuestEnable, function(Value)
+DojoQuest:addToggle("Ir para Quest do Dojo Trainer", DojoQuestEnable, function(Value)
     DojoQuestEnable = Value
     StopBoats(DojoQuestEnable)
     CancelTween(DojoQuestEnable)
@@ -8647,7 +8647,10 @@ DojoQuest:addButton('Teleportar para Dragon Wizzard', function()
     Tween(CFrame.new(5775.35059, 1209.50269, 805.679993, -0.696588516, -7.57756808e-08, 0.717470825, -7.6549334e-08, 1, 3.12936663e-08, -0.717470825, -3.31231078e-08, -0.696588516))
 end)
 
-DojoQuest:addToggle("Procurar Ilha Vulcão", TeleportVulcan, function(Value)
+----------------------------------------------------//----------------------------------------------------
+local Vulcan = Misc_Left:addMenu('#Ilha Vulcão')
+
+Vulcan:addToggle("Procurar Ilha Vulcão", TeleportVulcan, function(Value)
     TeleportVulcan = Value
     AutoSail = Value
     CancelTween(AutoSail)
@@ -8661,116 +8664,10 @@ spawn(function()
                 _G.CenterPI = game:GetService("Workspace").Map.PrehistoricIsland.Center.Position
                 Tween(CFrame.new(_G.CenterPI))
                 AutoSail = false
+                TeleportVulcan = false
             end
         end
     end
-end)
-
-
-----------------------------------------------------//----------------------------------------------------
-local Misc_1 = Misc_Left:addMenu('#Misc')
-
-local CodeList = {
-    "EXP_5B",
-    "CONTROL",
-    "UPDATE11",
-    "XMASEXP",
-    "1BILLION",
-    "ShutDownFix2",
-    "UPD14",
-    "STRAWHATMAINE",
-    "TantaiGaming",
-    "Colosseum",
-    "Axiore",
-    "Sub2Daigrock",
-    "Sky Island 3",
-    "Sub2OfficialNoobie",
-    "SUB2NOOBMASTER123",
-    "THEGREATACE",
-    "Fountain City",
-    "BIGNEWS",
-    "FUDD10",
-    "SUB2GAMERROBOT_EXP1",
-    "UPD15",
-    "2BILLION",
-    "UPD16",
-    "3BVISITS",
-    "fudd10_v2",
-    "Starcodeheo",
-    "Magicbus",
-    "JCWK",
-    "Bluxxy",
-    "Sub2Fer999",
-    "Enyu_is_Pro",
-
-    "SECRET_ADMIN",
-    "KITT_RESET",
-    "DRAGONABUSE",
-    "Sub2CaptainMaui",
-    "DEVSCOOKING",
-    "kittgaming",
-    "Sub2Fer999",
-    "Enyu_is_Pro",
-    "Magicbus",
-    "JCWK",
-    "Starcodeheo",
-    "Bluxxy",
-    "fudd10_v2",
-    "SUB2GAMERROBOT_EXP1",
-    "Sub2NoobMaster123",
-    "Sub2UncleKizaru",
-    "Sub2Daigrock",
-    "Axiore",
-    "TantaiGaming",
-    "StrawHatMaine",
-    "Sub2OfficialNoobie",
-    "Fudd10",
-    "Bignews",
-    "TheGreatAce"
-}
-Misc_1:addButton('Redeem X2 Code', function()
-    function RedeemCode(value)
-        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
-    end
-    for i,v in pairs(CodeList) do
-        RedeemCode(v)
-    end
-end)
-
-Misc_1:addButton("Join Pirates Team", function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
-end)
-    
-Misc_1:addButton("Join Marines Team", function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
-end)
-
-Misc_1:addButton("Always Day", function()
-    while game:GetService("RunService").Heartbeat:wait() do
-        game:GetService("Lighting").ClockTime = 12
-    end
-end)
-
-Misc_1:addButton("Remove Lave", function()
-    for i,v in pairs(game.Workspace:GetDescendants()) do
-        if v.Name == "Lava" then   
-            v:Destroy()
-        end
-    end
-    for i,v in pairs(game.ReplicatedStorage:GetDescendants()) do
-        if v.Name == "Lava" then   
-            v:Destroy()
-        end
-    end
-end)
-
-Misc_1:addButton("Title Name", function()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getTitles") 
-    game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
-end)
-
-Misc_1:addButton("Color Haki", function()
-    game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 end)
 
 ----------------------------------------------------//----------------------------------------------------
