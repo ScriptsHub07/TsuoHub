@@ -8666,7 +8666,7 @@ end)
 
 spawn(function()
     while task.wait() do
-        if AutoEliteHunter then
+        if NpcVulcan then
             pcall(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("Lava Golem") then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
