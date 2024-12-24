@@ -1996,6 +1996,9 @@ function CheckSea()
         SeaCFrame = CFrame.new(-40590.6016, 33.9405403, -7537.76904, -0.639351368, -0.0159463026, 0.768749297, -0.0249336194, 0.999689102, -1.24928505e-11, -0.768510342, -0.0191677026, -0.639550209)
     elseif SeaLevelSelected == 'Level 6' then
         SeaCFrame = CFrame.new(-44423.1484, 33.9416809, -3737.24731, -0.560524285, -0.0023141338, 0.828134775, -0.00412848173, 0.999991477, -2.23175589e-10, -0.828127682, -0.00341893942, -0.560529053)
+    elseif SeaLevelSelected == 'Ilha Vulcão' then
+        SeaCFrame = CFrame.new(-99999.2265625, 67.78327941894531, -9737.363037109375)
+    
     end
 end
 
@@ -4863,13 +4866,6 @@ spawn(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress","Detective")
                         elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Key") or game.Players.LocalPlayer.Character:FindFirstChild("Key") then
                             game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Key"])
-                            --[[if ByPassTP then
-                                BTP(CFrame.new(1349.697265625, 37.34928512573242, -1328.8309326171875))
-                                game:GetService("Workspace").Map.Ice.Door.Size = Vector3.new(30,30,30)
-                            elseif not ByPassTP then
-                                Tween(CFrame.new(1349.697265625, 37.34928512573242, -1328.8309326171875))
-                                game:GetService("Workspace").Map.Ice.Door.Size = Vector3.new(30,30,30)
-                            end]]
                             Tween(CFrame.new(1347.65271, 37.3906517, -1325.07715, 0.484830558, 2.71348792e-08, 0.874608099, -2.34559963e-08, 1, -1.80225808e-08, -0.874608099, -1.17769057e-08, 0.484830558))
                         end
                     elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").UsedKey == true then
