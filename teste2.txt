@@ -1991,7 +1991,7 @@ function CheckSea()
     elseif SeaLevelSelected == 'Level 5' then
         SeaCFrame = CFrame.new(-40590.6016, 33.9405403, -7537.76904, -0.639351368, -0.0159463026, 0.768749297, -0.0249336194, 0.999689102, -1.24928505e-11, -0.768510342, -0.0191677026, -0.639550209)
     elseif SeaLevelSelected == 'Level 6' then
-        SeaCFrame = CFrame.new(-99999.2265625, 97.78327941894531, -9737.363037109375)
+        SeaCFrame = CFrame.new(-999999.2265625, 979.78327941894531, -97379.363037109375)
     end
 end
 
