@@ -8669,9 +8669,9 @@ spawn(function()
         if NpcVulcan then
             pcall(function()
                 if game:GetService("Workspace").Enemies:FindFirstChild("Lava Golem") then
-                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                            if v.Name == "Lava Golem" then
+                            if (v.Name == "Lava Golem") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                 repeat game:GetService("RunService").Heartbeat:wait()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
@@ -8681,7 +8681,7 @@ spawn(function()
                                     v.Humanoid:ChangeState(11)
                                     v.Humanoid:ChangeState(14)
                                     AutoClick()
-                                until NpcVulcan == false or v.Humanoid.Health <= 0 or not v.Parent
+                                until not NpcVulcan or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
                     end
