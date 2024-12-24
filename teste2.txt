@@ -8685,9 +8685,10 @@ spawn(function()
                             end
                         end
                     end
-                    end
-                end)
-            end)
+                end
+        end
+    end)
+end)
 ----------------------------------------------------//----------------------------------------------------
 --// MISC RIGHT
 local Misc_Right = Tab.Tab_7:addSection()
