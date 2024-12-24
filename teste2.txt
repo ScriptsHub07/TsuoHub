@@ -1949,12 +1949,8 @@ spawn(function()
         pcall(function()
             if AutoSeaFarm or AutoSail then
                 game:GetService("Workspace").Boats:FindFirstChild(BoatSelected).VehicleSeat.BodyVelocity.MaxForce = Vector3.new(100000000000,100000000000,100000000000)
-                --game:GetService("Workspace").Boats:FindFirstChild(BoatSelected).VehicleSeat.BodyPosition.MaxForce = Vector3.new(100000000,100000000,100000000)
             else
                 game:GetService("Workspace").Boats:FindFirstChild(BoatSelected).VehicleSeat.BodyVelocity.MaxForce = Vector3.new(2453406976, 0, 2453406976)
-                --game:GetService("Workspace").Boats:FindFirstChild(BoatSelected).VehicleSeat.BodyPosition.MaxForce = Vector3.new(0, 2453406976, 0)
-                --game:GetService("Workspace").Boats:FindFirstChild(BoatSelected).VehicleSeat.BodyVelocity.Velocity = Vector3.new(0,0,0)
-
             end
         end)
     end
@@ -1995,10 +1991,7 @@ function CheckSea()
     elseif SeaLevelSelected == 'Level 5' then
         SeaCFrame = CFrame.new(-40590.6016, 33.9405403, -7537.76904, -0.639351368, -0.0159463026, 0.768749297, -0.0249336194, 0.999689102, -1.24928505e-11, -0.768510342, -0.0191677026, -0.639550209)
     elseif SeaLevelSelected == 'Level 6' then
-        SeaCFrame = CFrame.new(-44423.1484, 33.9416809, -3737.24731, -0.560524285, -0.0023141338, 0.828134775, -0.00412848173, 0.999991477, -2.23175589e-10, -0.828127682, -0.00341893942, -0.560529053)
-    elseif SeaLevelSelected == 'Ilha Vulcão' then
         SeaCFrame = CFrame.new(-99999.2265625, 67.78327941894531, -9737.363037109375)
-    
     end
 end
 
@@ -2011,7 +2004,7 @@ Sea_Farm:addDropdown("Select Boat", BoatSelected, BoatList, function(Value)
 end)
 
 local SeaLevelList = {
-    'Level 1'; 'Level 2'; 'Level 3'; 'Level 4'; 'Level 5'; 'Level 6'; 'Ilha Vulcão';
+    'Level 1'; 'Level 2'; 'Level 3'; 'Level 4'; 'Level 5'; 'Level 6';
 }
 Sea_Farm:addDropdown("Select Sea Level", SeaLevelSelected, SeaLevelList, function(Value)
     SeaLevelSelected = Value
