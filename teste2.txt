@@ -8663,23 +8663,30 @@ Vulcan:addToggle("Derrotar Npc de Ilha Vulcão", NpcVulcan, function(Value)
     NpcVulcan = Value
     CancelTween(NpcVulcan)
 end)
-if game:GetService("Workspace").Enemies:FindFirstChild("Lava Golem") then
-    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-            if v.Name == "Lava Golem" then
-                repeat game:GetService("RunService").Heartbeat:wait()
-                    EquipTool(SelectWeapon)
-                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-                    v.HumanoidRootPart.CanCollide = false
-                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                    v.HumanoidRootPart.Transparency = 1
-                    v.Humanoid:ChangeState(11)
-                    v.Humanoid:ChangeState(14)
-                    AutoClick()
-                until NpcVulcan == false or v.Humanoid.Health <= 0 or not v.Parent
-            end
-        end
-    end
+
+spawn(function()
+    while task.wait() do
+        if AutoEliteHunter then
+            pcall(function()
+                if game:GetService("Workspace").Enemies:FindFirstChild("Lava Golem") then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if v.Name == "Lava Golem" then
+                                repeat game:GetService("RunService").Heartbeat:wait()
+                                    EquipTool(SelectWeapon)
+                                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.Transparency = 1
+                                    v.Humanoid:ChangeState(11)
+                                    v.Humanoid:ChangeState(14)
+                                    AutoClick()
+                                until NpcVulcan == false or v.Humanoid.Health <= 0 or not v.Parent
+                            end
+                        end
+                    end
+                end)
+            end)
 ----------------------------------------------------//----------------------------------------------------
 --// MISC RIGHT
 local Misc_Right = Tab.Tab_7:addSection()
