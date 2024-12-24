@@ -8649,9 +8649,8 @@ end)
 spawn(function()
     while task.wait() do
         if TeleportVulcan then
-            if game:GetService("Workspace").Map:FindFirstChild("PrehistoricIsland") then
-                _G.CenterPI = game:GetService("Workspace").Map.PrehistoricIsland
-                Tween(CFrame.new(_G.CenterPI))
+            if game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island") then
+                PlayBoatsTween(game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island").CFrame * CFrame.new(0,DisSeaFarm,0))
                 AutoSail = false
                 TeleportVulcan = false
             end
