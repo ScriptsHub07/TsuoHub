@@ -1991,7 +1991,7 @@ function CheckSea()
     elseif SeaLevelSelected == 'Level 5' then
         SeaCFrame = CFrame.new(-40590.6016, 33.9405403, -7537.76904, -0.639351368, -0.0159463026, 0.768749297, -0.0249336194, 0.999689102, -1.24928505e-11, -0.768510342, -0.0191677026, -0.639550209)
     elseif SeaLevelSelected == 'Level 6' then
-        SeaCFrame = CFrame.new(-99999.2265625, 67.78327941894531, -9737.363037109375)
+        SeaCFrame = CFrame.new(-99999.2265625, 97.78327941894531, -9737.363037109375)
     end
 end
 
@@ -8659,6 +8659,27 @@ spawn(function()
     end
 end)
 
+Vulcan:addToggle("Derrotar Npc de Ilha Vulcão", NpcVulcan, function(Value)
+    NpcVulcan = Value
+    CancelTween(NpcVulcan)
+end)
+if game:GetService("Workspace").Enemies:FindFirstChild("Lava Golem") then
+    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+            if v.Name == "Lava Golem" then
+                repeat game:GetService("RunService").Heartbeat:wait()
+                    EquipTool(SelectWeapon)
+                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                    v.HumanoidRootPart.CanCollide = false
+                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                    v.HumanoidRootPart.Transparency = 1
+                    v.Humanoid:ChangeState(11)
+                    v.Humanoid:ChangeState(14)
+                    AutoClick()
+                until NpcVulcan == false or v.Humanoid.Health <= 0 or not v.Parent
+            end
+        end
+    end
 ----------------------------------------------------//----------------------------------------------------
 --// MISC RIGHT
 local Misc_Right = Tab.Tab_7:addSection()
