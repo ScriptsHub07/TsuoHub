@@ -3173,7 +3173,7 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                        if v.Name == "Island Boy" or v.Name == "Isle Champion" or v.Name =="Isle Outlaw" then
+                        if v.Name == "Island Boy" or v.Name == "Isle Champion" or v.Name =="Isle Outlaw" or v.Name =="Sun-kissed Warrior" or v.Name =="Serpent Hunter" or v.Name =="Skull Slayer" then
                             repeat game:GetService("RunService").Heartbeat:wait()
                                 EquipTool(SelectWeapon)
                                 Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
@@ -3193,6 +3193,12 @@ spawn(function()
                     elseif v.Name == "Isle Champion" then
                         Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                     elseif v.Name == "Isle Outlaw" then
+                        Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                    elseif v.Name == "Skull Slayer" then
+                        Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                    elseif v.Name == "Serpent Hunter" then
+                        Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                    elseif v.Name == "Sun-kissed Warrior" then
                         Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                     end
                 end
