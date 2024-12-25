@@ -3165,6 +3165,8 @@ end)
 
 Other_Farm:addToggle('Candy Farm', Farm_Candy, function(Value)
     Farm_Candy = Value
+    Nearest_Farm = Value
+    CancelTween(Nearest_Farm)
     CancelTween(Farm_Candy)
 end)
 spawn(function()
