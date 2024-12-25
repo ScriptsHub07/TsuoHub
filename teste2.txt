@@ -3181,11 +3181,8 @@ end)
 
 local Candyframe = CFrame.new(-16519.095703125, 55.695556640625, 1087.766357421875)
 
-Other_Farm:addToggle('Teleportar para candy farm', TpCandy, function(Value)
-    TpCandy = Value
-    if TpCandy then
-        Tween(Candyframe)
-    end
+Misc_Settings:addButton("Tp para Farm Candy", function()
+    Tween(Candyframe)
 end)
 
 Other_Farm:addToggle('Candy Farm', Farm_Candy, function(Value)
