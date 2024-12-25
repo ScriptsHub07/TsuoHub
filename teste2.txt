@@ -1736,6 +1736,22 @@ spawn(function()
     end
 end)
 
+Main_Setting:addToggle('Auto Ativar v3', Ativar3, function(Value)
+    Ativar3 = Value
+end)
+
+spawn(function()
+    while wait() do
+        if Ativar3 then
+            local args = {
+                [1] = "ActivateAbility"
+            }
+            
+            game:GetService("ReplicatedStorage").Remotes.CommE:FireServer(unpack(args))
+        end
+    end
+end)
+
 Main_Setting:addToggle("Bypass Teleport", ByPassTP, function(Value)
     ByPassTP = Value
 end)
