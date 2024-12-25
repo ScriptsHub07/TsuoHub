@@ -3190,9 +3190,9 @@ spawn(function()
         if Farm_Candy then
             Tween(Candyframe)
             wait(35)
+            Nearest_Farm = true
             pcall(function()
                 Nearest_Farm = Value
-                CancelTween(Nearest_Farm)
                 for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                         if v.Name == "Island Boy" or v.Name == "Isle Champion" or v.Name =="Isle Outlaw" or v.Name =="Sun-kissed Warrior" or v.Name =="Serpent Hunter" or v.Name =="Skull Slayer" then
@@ -3228,6 +3228,9 @@ spawn(function()
         end
     end
 end)
+if Farm_Candy == false then
+    Nearest_Farm = false
+end
 
 Other_Farm:addToggle('Ectoplasm Farm (Second Sea)', Farm_Ectoplasm, function(Value)
     Farm_Ectoplasm = Value
