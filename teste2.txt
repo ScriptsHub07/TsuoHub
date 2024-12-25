@@ -3181,7 +3181,7 @@ end)
 
 local Candyframe = CFrame.new(-16519.095703125, 55.695556640625, 1087.766357421875)
 
-Misc_Settings:addButton("Tp para Farm Candy", function()
+Other_Farm:addButton("Tp para Farm Candy", function()
     Tween(Candyframe)
 end)
 
