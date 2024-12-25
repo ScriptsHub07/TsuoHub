@@ -3181,19 +3181,19 @@ end)
 
 local Candyframe = CFrame.new(-16519.095703125, 55.695556640625, 1087.766357421875)
 
+Other_Farm:addToggle('Teleportar para candy farm', function()
+    Tween(Candyframe)
+end)
+
 Other_Farm:addToggle('Candy Farm', Farm_Candy, function(Value)
     Farm_Candy = Value
     CancelTween(Farm_Candy)
+    Nearest_Farm = Value
+    CancelTween(Nearest_Farm)
 end)
 spawn(function()
     while task.wait() do
         if Farm_Candy then
-            Tween(Candyframe)
-            if player.Position == Candyframe then
-                Nearest_Farm = true
-            else
-                Nearest_Farm = false
-            end
             pcall(function()
                 for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
