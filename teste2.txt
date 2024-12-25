@@ -3179,9 +3179,12 @@ spawn(function()
     end
 end)
 
+local Candyframe = CFrame.new(-16519.095703125, 55.695556640625, 1087.766357421875)
+
 Other_Farm:addToggle('Candy Farm', Farm_Candy, function(Value)
     Farm_Candy = Value
     Nearest_Farm = Value
+    Tween(Candyframe)
     CancelTween(Nearest_Farm)
     CancelTween(Farm_Candy)
 end)
