@@ -3183,16 +3183,16 @@ local Candyframe = CFrame.new(-16519.095703125, 55.695556640625, 1087.7663574218
 
 Other_Farm:addToggle('Candy Farm', Farm_Candy, function(Value)
     Farm_Candy = Value
-    Tween(Candyframe)
-    wait(35)
-    Nearest_Farm = Value
-    CancelTween(Nearest_Farm)
     CancelTween(Farm_Candy)
 end)
 spawn(function()
     while task.wait() do
         if Farm_Candy then
+            Tween(Candyframe)
+            wait(35)
             pcall(function()
+                Nearest_Farm = Value
+                CancelTween(Nearest_Farm)
                 for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                         if v.Name == "Island Boy" or v.Name == "Isle Champion" or v.Name =="Isle Outlaw" or v.Name =="Sun-kissed Warrior" or v.Name =="Serpent Hunter" or v.Name =="Skull Slayer" then
