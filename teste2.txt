@@ -7867,7 +7867,7 @@ end)
 ----------------------------------------------------//----------------------------------------------------
 --// SHOP LEFT
 local Shop_Left = Tab.Tab_6:addSection()
-local RaceFragShop = Shop_Left:addMenu('#Bone - Ecto - Fragment')
+local RaceFragShop = Shop_Left:addMenu('#Bone - Ecto - Fragment - Candy')
 RaceFragShop:addButton("Race Ghoul [ $100 Ectoplasm ]", function()
     local args1 = {
         [1] = "Ectoplasm",
@@ -7919,6 +7919,55 @@ RaceFragShop:addButton("Reset Stats [ f2500 Fragments ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
+RaceFragShop:addButton("200 Frags [ 50 Candy ]", function()
+    local args = {
+        [1] = "Candies",
+        [2] = "Buy",
+        [3] = 2,
+        [4] = 1
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+RaceFragShop:addButton("500 Frags [ 100 Candy ]", function()
+    local args = {
+        [1] = "Candies",
+        [2] = "Buy",
+        [3] = 2,
+        [4] = 2
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+RaceFragShop:addButton("Elf Hat [ 250 Candy ]", function()
+    local args = {
+        [1] = "Candies",
+        [2] = "Buy",
+        [3] = 3,
+        [4] = 1
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+RaceFragShop:addButton("Santa Hat [ 500 Candy ]", function()
+    local args = {
+        [1] = "Candies",
+        [2] = "Buy",
+        [3] = 3,
+        [4] = 2
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+RaceFragShop:addButton("Trenó [ 1000 Candy ]", function()
+    local args = {
+        [1] = "Candies",
+        [2] = "Buy",
+        [3] = 3,
+        [4] = 3
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
 ----------------------------------------------------//----------------------------------------------------
 --// ABILITIES SHOP
 local AbilityShop = Shop_Left:addMenu('#Abilities')
