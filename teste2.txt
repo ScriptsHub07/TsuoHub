@@ -3166,6 +3166,12 @@ spawn(function()
     while task.wait() do
         if Farm_Candy then
             pcall(function()
+                local candyframe = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
+                if ByPassTP then
+                    BTP(candyframe)
+                elseif not ByPassTP then
+                    Tween(candyframe)
+                end
                 for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                         if v.Name == "Island Boy" or v.Name == "Isle Champion" or v.Name =="Isle Outlaw" then
