@@ -1644,6 +1644,11 @@ spawn(function()
                 BringMonster(Level_Farm_Name, Level_Farm_CFrame)
             end)
 
+        elseif BringMobs and Farm_Candy then
+            pcall(function()
+                BringMonster(Candy_Farm_Name, Candy_Farm_CFrame)
+            end)
+
         elseif BringMobs and Farm_Bone then
             pcall(function()
                 BringMonster(Bone_Farm_Name, Bone_Farm_CFrame)
