@@ -8468,8 +8468,8 @@ function getAcc(BeltName)
 end
 local DojoQuestNpc = CFrame.new(5855.19629, 1208.32178, 872.713501, 0.606994748, -1.81058823e-09, -0.794705868, 5.72712722e-09, 1, 2.09605577e-09, 0.794705868, -5.82367621e-09, 0.606994748)
 
-DojoQuest:addLabel('Get quest first')
-DojoQuest:addLabel('')
+local DojoProgessCheck = DojoQuest:addLabel('Get quest first')
+local DojoInfoCheck = DojoQuest:addLabel('')
 
 task.spawn(function()
     while wait() do
