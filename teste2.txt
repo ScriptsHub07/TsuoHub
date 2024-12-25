@@ -3158,7 +3158,7 @@ spawn(function()
     end
 end)
 
-Other_Farm:addToggle('Bones Farm (Third Sea)', Farm_Candy, function(Value)
+Other_Farm:addToggle('Candy Farm', Farm_Candy, function(Value)
     Farm_Candy = Value
     CancelTween(Farm_Candy)
 end)
