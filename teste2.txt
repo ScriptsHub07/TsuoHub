@@ -1659,7 +1659,7 @@ end)
 spawn(function()
     while task.wait() do
         if FastAttackSelected == "Fast" then
-            FastAttackDelay = 0.005
+            FastAttackDelay = 0
         elseif FastAttackSelected == "Normal" then
             FastAttackDelay = 0.2
         elseif FastAttackSelected == "Slow" then
@@ -8530,7 +8530,7 @@ RaceFragShop:addButton("Race Ghoul [ $100 Ectoplasm ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args2))
 end)
 
-RaceFragShop:addButton("Cyborg [ $??? ]", function()
+RaceFragShop:addButton("Cyborg [ f2500 Fragments ]", function()
     local args = {
         [1] = "CyborgTrainer",
         [2] = "Buy"
@@ -8538,32 +8538,12 @@ RaceFragShop:addButton("Cyborg [ $??? ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
-RaceFragShop:addButton("Suprise Bone [ ðŸ¦´50 Bone ]", function()
+RaceFragShop:addButton("Suprise Bone [ 50 Bone ]", function()
     local args = {
         [1] = "Bones",
         [2] = "Buy",
         [3] = 1,
         [4] = 1
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end)
-
-RaceFragShop:addButton("Stat Refund [ ðŸ¦´50 Bone ]", function()
-    local args = {
-        [1] = "Bones",
-        [2] = "Buy",
-        [3] = 1,
-        [4] = 2
-    }
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end)
-
-RaceFragShop:addButton("Race Reroll [ ðŸ¦´50 Bone ]", function()
-    local args = {
-        [1] = "Bones",
-        [2] = "Buy",
-        [3] = 1,
-        [4] = 3
     }
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
