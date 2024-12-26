@@ -3067,17 +3067,17 @@ local MoonCheck = IslandInfo:addLabel("")
 spawn(function()
     while wait() do
         if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ‘ 100%")
+            MoonCheck:Refresh("Moon Status : 100%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149052" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ’ 75%")
+            MoonCheck:Refresh("Moon Status : 75%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709143733" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ“ 50%")
+            MoonCheck:Refresh("Moon Status : 50%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709150401" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ— 25%")
+            MoonCheck:Refresh("Moon Status : 25%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149680" then
-            MoonCheck:Refresh("Moon Status : ðŸŒ– 15%")
+            MoonCheck:Refresh("Moon Status : 15%")
         else
-            MoonCheck:Refresh("Moon Status : ðŸŒš 0%")
+            MoonCheck:Refresh("Moon Status : 0%")
         end
     end
 end)
