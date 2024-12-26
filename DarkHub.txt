@@ -12,7 +12,6 @@ local TweenInfo = TweenInfo.new
 local LocalizationService = game:GetService("LocalizationService");
 local http = game:GetService("HttpService");
 local LocalPlayer = game:GetService("Players").LocalPlayer;
-local NameID = LocalPlayer.Name;
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
 
 local utility = {};
@@ -227,20 +226,6 @@ function Library:CreateWindow(hubname)
             UpdateTime()
         end
     end)
-
-    Server_ID.Name = "Server_ID"
-    Server_ID.Parent = Body
-    Server_ID.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Server_ID.BackgroundTransparency = 1.000
-    Server_ID.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Server_ID.BorderSizePixel = 0
-    Server_ID.Position = UDim2.new(0, 230, 0, 320)
-    Server_ID.Size = UDim2.new(0, 365, 0, 25)
-    Server_ID.Font = Enum.Font.SourceSansSemibold
-    Server_ID.Text = "User : " .. NameID;
-    Server_ID.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Server_ID.TextSize = 14.000
-    Server_ID.TextXAlignment = Enum.TextXAlignment.Right
 
     List_Tile.Name = "List_Tile"
     List_Tile.Parent = Body
