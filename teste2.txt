@@ -1731,7 +1731,7 @@ function BringMonster(TargetName, TargetCFrame)
                 if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < tonumber(bringfrec) then
                     v.HumanoidRootPart.CFrame = TargetCFrame
                     v.HumanoidRootPart.CanCollide = false
-                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                    v.HumanoidRootPart.Size = Vector3.new(80, 80, 80)
                     v.HumanoidRootPart.Transparency = 1
                     v.Humanoid:ChangeState(11)
                     v.Humanoid:ChangeState(14)
@@ -1967,18 +1967,6 @@ spawn(function()
                 v:Destroy()
             end
         end
-    end
-end)
-
-Misc_Settings:addButton("Destroy Effect Animation", function()
-    game:GetService("ReplicatedStorage").Assets.Models:Destroy()
-    game:GetService("ReplicatedStorage").Assets.GUI:Destroy()
-    game:GetService("ReplicatedStorage").Assets.SlashHit:Destroy()
-    for i,v in pairs(game:GetService("ReplicatedStorage").Effect.Container.Death:GetChildren()) do
-        v:Destroy()
-    end
-    for i,v in pairs(game:GetService("ReplicatedStorage").Effect.Container.Respawn:GetChildren()) do
-        v:Destroy()
     end
 end)
 
@@ -3079,17 +3067,17 @@ local MoonCheck = IslandInfo:addLabel("")
 spawn(function()
     while wait() do
         if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" then
-            MoonCheck:Refresh("Moon Status : 100%")
+            MoonCheck:Refresh("Moon Status : ðŸŒ‘ 100%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149052" then
-            MoonCheck:Refresh("Moon Status : 75%")
+            MoonCheck:Refresh("Moon Status : ðŸŒ’ 75%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709143733" then
-            MoonCheck:Refresh("Moon Status : 50%")
+            MoonCheck:Refresh("Moon Status : ðŸŒ“ 50%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709150401" then
-            MoonCheck:Refresh("Moon Status : 25%")
+            MoonCheck:Refresh("Moon Status : ðŸŒ— 25%")
         elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149680" then
-            MoonCheck:Refresh("Moon Status : 15%")
+            MoonCheck:Refresh("Moon Status : ðŸŒ– 15%")
         else
-            MoonCheck:Refresh("Moon Status : 0%")
+            MoonCheck:Refresh("Moon Status : ðŸŒš 0%")
         end
     end
 end)
@@ -8542,7 +8530,7 @@ RaceFragShop:addButton("Race Ghoul [ $100 Ectoplasm ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args2))
 end)
 
-RaceFragShop:addButton("Cyborg [ f2500 Fragments ]", function()
+RaceFragShop:addButton("Cyborg [ $??? ]", function()
     local args = {
         [1] = "CyborgTrainer",
         [2] = "Buy"
@@ -8550,7 +8538,7 @@ RaceFragShop:addButton("Cyborg [ f2500 Fragments ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
-RaceFragShop:addButton("Suprise Bone [ 50 Bone ]", function()
+RaceFragShop:addButton("Suprise Bone [ ðŸ¦´50 Bone ]", function()
     local args = {
         [1] = "Bones",
         [2] = "Buy",
@@ -8560,7 +8548,7 @@ RaceFragShop:addButton("Suprise Bone [ 50 Bone ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
-RaceFragShop:addButton("Stat Refund [ 50 Bone ]", function()
+RaceFragShop:addButton("Stat Refund [ ðŸ¦´50 Bone ]", function()
     local args = {
         [1] = "Bones",
         [2] = "Buy",
@@ -8570,7 +8558,7 @@ RaceFragShop:addButton("Stat Refund [ 50 Bone ]", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
-RaceFragShop:addButton("Race Reroll [ 50 Bone ]", function()
+RaceFragShop:addButton("Race Reroll [ ðŸ¦´50 Bone ]", function()
     local args = {
         [1] = "Bones",
         [2] = "Buy",
@@ -9610,3 +9598,13 @@ spawn(function()
         end
     end
 end)
+    
+    game:GetService("ReplicatedStorage").Assets.Models:Destroy()
+    game:GetService("ReplicatedStorage").Assets.GUI:Destroy()
+    game:GetService("ReplicatedStorage").Assets.SlashHit:Destroy()
+    for i,v in pairs(game:GetService("ReplicatedStorage").Effect.Container.Death:GetChildren()) do
+        v:Destroy()
+    end
+    for i,v in pairs(game:GetService("ReplicatedStorage").Effect.Container.Respawn:GetChildren()) do
+        v:Destroy()
+    end
