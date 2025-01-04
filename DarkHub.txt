@@ -183,7 +183,7 @@ function Library:CreateWindow(hubname)
     end)
 
     Discord.MouseButton1Click:Connect(function()
-        (setclipboard or toclipboard)("Tsuo")
+        (setclipboard or toclipboard)("dark_769.")
         wait(.1)
         game:GetService("StarterGui"):SetCore("SendNotification",{
             Title = "Discord",
@@ -262,7 +262,7 @@ function Library:CreateWindow(hubname)
     toggle_Image.BorderColor3 = Color3.fromRGB(0, 0, 0)
     toggle_Image.BorderSizePixel = 0
     toggle_Image.Size = UDim2.new(0, 40, 0, 40)
-    toggle_Image.Image = "rbxassetid://101217718691612"
+    toggle_Image.Image = ""
     toggle_Image.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
     local minimizetog = false
