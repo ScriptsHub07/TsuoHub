@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsHub07/DarkHub/refs/heads/main/DarkHub.txt"))()
 
-local Window = Library:CreateWindow('Tsuo Hub')
+local Window = Library:CreateWindow('Dark x Hub')
 
 local Tab = {
     Tab_1 = Window:addTab('#Home'),
