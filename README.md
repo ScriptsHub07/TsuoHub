@@ -1,1 +1,548 @@
-([[This file was protected with MoonSec V3]]):gsub('.+', (function(a) _JdVgqVybicEY = a; end)); return(function(h,...)local t;local f;local o;local r;local d;local u;local n=24915;local e=0;local l={};while e<164 do e=e+1;while e<0x2e8 and n%0xb78<0x5bc do e=e+1 n=(n*667)%18168 local c=e+n if(n%0x3772)>0x1bb9 then n=(n-0x12b)%0x7311 while e<0x168 and n%0x1f8a<0xfc5 do e=e+1 n=(n-882)%22105 local r=e+n if(n%0x12b8)>=0x95c then n=(n+0x1c9)%0x8b5b local n=6460 if not l[n]then l[n]=0x1 t=getfenv and getfenv();end elseif n%2~=0 then n=(n+0x3b)%0xb3d3 local n=98241 if not l[n]then l[n]=0x1 d=function(l)local n=0x01 local function e(e)n=n+e return l:sub(n-e,n-0x01)end while true do local l=e(0x01)if(l=="\5")then break end local n=f.byte(e(0x01))local n=e(n)if l=="\2"then n=o.vpcdncPv(n)elseif l=="\3"then n=n~="\0"elseif l=="\6"then t[n]=function(e,n)return h(8,nil,h,n,e)end elseif l=="\4"then n=t[n]elseif l=="\0"then n=t[n][e(f.byte(e(0x01)))];end local e=e(0x08)o[e]=n end end end else n=(n-0x134)%0x1e82 e=e+1 local n=83935 if not l[n]then l[n]=0x1 f=string;end end end elseif n%2~=0 then n=(n*0x23c)%0x4bd7 while e<0x12c and n%0x422c<0x2116 do e=e+1 n=(n-500)%33714 local d=e+n if(n%0x179e)>=0xbcf then n=(n+0x351)%0xc7c local n=15858 if not l[n]then l[n]=0x1 u=tonumber;end elseif n%2~=0 then n=(n-0x1c2)%0x76ec local n=99750 if not l[n]then l[n]=0x1 t=(not t)and _ENV or t;end else n=(n+0x13e)%0x5eee e=e+1 local n=18449 if not l[n]then l[n]=0x1 r="\4\8\116\111\110\117\109\98\101\114\118\112\99\100\110\99\80\118\0\6\115\116\114\105\110\103\4\99\104\97\114\117\120\107\107\122\121\66\119\0\6\115\116\114\105\110\103\3\115\117\98\111\69\116\121\119\115\79\100\0\6\115\116\114\105\110\103\4\98\121\116\101\109\110\89\80\107\106\75\103\0\5\116\97\98\108\101\6\99\111\110\99\97\116\68\114\86\70\74\116\115\79\0\5\116\97\98\108\101\6\105\110\115\101\114\116\82\100\84\113\82\87\83\113\5";end end end else n=(n+0x1f9)%0x58bd e=e+1 while e<0x269 and n%0x250e<0x1287 do e=e+1 n=(n+304)%12770 local t=e+n if(n%0x33ce)<0x19e7 then n=(n-0x309)%0x7c6e local n=81818 if not l[n]then l[n]=0x1 o={};end elseif n%2~=0 then n=(n+0x1fe)%0x7ad9 local n=9120 if not l[n]then l[n]=0x1 end else n=(n+0x2a8)%0x593b e=e+1 local n=93062 if not l[n]then l[n]=0x1 end end end end end n=(n+125)%7295 end d(r);local n={};for e=0x0,0xff do local l=o.uxkkzyBw(e);n[e]=l;n[l]=e;end local function a(e)return n[e];end local f=(function(c,d)local r,l=0x01,0x10 local e={{},{},{}}local t=-0x01 local n=0x01 local f=c while true do e[0x03][o.oEtywsOd(d,n,(function()n=r+n return n-0x01 end)())]=(function()t=t+0x01 return t end)()if t==(0x0f)then t=""l=0x000 break end end local t=#d while n<t+0x01 do e[0x02][l]=o.oEtywsOd(d,n,(function()n=r+n return n-0x01 end)())l=l+0x01 if l%0x02==0x00 then l=0x00 o.RdTqRWSq(e[0x01],(a((((e[0x03][e[0x02][0x00]]or 0x00)*0x10)+(e[0x03][e[0x02][0x01]]or 0x00)+f)%0x100)));f=c+f;end end return o.DrVFJtsO(e[0x01])end);d(f(44,"G.{m#s3iPL8R+ U* L"));d(f(229,"GN8:JbWY!hFpf=PONp:ffJPMOh{p8p:OOYY8hPpNfO=+LPHW:b8FWfWYY=bWY8O!)WNOJbW-!W!OFP=YP:UNOpNpP!?Y!=FFpf=fO=OYNbb:J8WF!OhPfhYfh=8bJNbFWf!fFebh=fPpNh8:J:WYbJF2h=p8=:Nc8NfPP=YN!IFPp=YbOY(F8WbJWYYpF8p8FFf:OOOF8bPPNNh:FnfF=PONNp8:bNbhYbhFFP=!=TPWOY8JbOYpW8JgbPf!O8np:YJ=WpJYYOF(F=fO o88Jp8O p8WpJph=f08ObSYbYWbb=!hf8f=!:h=Ov8Yb=YBhH!SfNPPP:FPf=bJWF!hFbpP=jO>1J8Y8J:hbJY!FpFOf!hcpv:FJ8bP!:hYb:==ON6PNF:YbFW=Wp!f=:=!O=8:NOPW%:!=FNpPfFPYeF8=8P:FJfh!!:fh=OhWp8:!bbWY!YF!pppJOOOD8h8bbJY88pJ!=#==OON:8fb!JphJFJh!PNPp.bNN=YOWYF!hpYfWYPOFNp:hbJY8!W!2fpfPOOON:8JWO!"));local n=(-900+(function()local l,e=0,1;(function(l,t,e,n)e(l(e,e,n,t)and t(n,n,n,l),e(n,e,e,e),n(e,l,t,l)and n(l,n,n,t),n(t and e,n,l,e))end)(function(t,d,o,n)if l>329 then return t end l=l+1 e=(e+832)%33347 if(e%1960)<980 then return n(o(n,n,t,d and o),t(n,d,n,o and t),o(d,t and n,d,n),d(n,n,o,d))else return t end return t end,function(o,t,n,d)if l>117 then return t end l=l+1 e=(e+817)%39125 if(e%1566)<783 then return d(n(n,t,d,o),t(n,o and n,t,t),d(n,n,t and t,n),t(o,d,t,n))else return n end return n end,function(o,t,n,d)if l>244 then return n end l=l+1 e=(e-582)%44817 if(e%226)<113 then e=(e-304)%48679 return d(n(t,n,d,n),d(n,n,n,n),t(n,t,d,d)and o(n,d,n,n and n),t(o,o,n,t)and t(o,t,t and n,n))else return n end return d end,function(n,o,d,t)if l>176 then return n end l=l+1 e=(e+893)%38983 if(e%1488)>744 then return t(n(n and n,t,d,o),t(o,t,d,d),n(t,o,n,t)and n(d,d,n,n),n(o,o,t,d))else return n end return d end)return e;end)())local a=o.sYJArBmh or o.cFLxblwX;local g=(getfenv)or(function()return _ENV end);local c=4;local t=3;local nn=1;local d=2;local function y(z,...)local s=f(n,"qzJf(?WP8 xn9rNITWINIrI9In#PI I8IP??fI?8( ? WJ(WW8?_?W(If5(fN #zNPNWN?fz?J?z(Iff(((zf9JI(I(9(J(WfN( zrfrfPfWfWfNza(J(zfN9nzn9 989PJNf f8fff?InNINNf+zNffN JzJJJ9zIJnzPJ JWzPJfzfzNz9Jzzzz zNrP=nzWzfr(IPlWz(GxzmzfzzN?zzIr9xr^9PrnIPsPIIrnwPIfnIazIfIfIInxIJNNN NnI n(IzN(NnNIxIIfNfIRIdN.x9xPN9NINxP?P8PfPJPzrPrZrnrJW9PJWxW W8xIrxr r(xx9Pr?WF8W?N?r?9xI9J9J9nPPn9nN9Fn8PJ98nz9JWNnrnNnxnNxNxnnnxnx W(nxxnn?x8?I8nx9xnx 8r N n?P89W8f(frfJfzfV n r8N + N N n z ?8rJ?fJJfJJJzJ!fJzNzrz9z9zxz z8J znz?z(zfz(zzzb/IJ,z?<9%nlx6xB8ePhWJnzNFfLJkzhWIIIIIrvJInINzFI8IPIWInI(I(IJIzIxNINNNrNrNnNxN IxInNWN?N(NxNJNzN*IzN(rrrrrnrNr r8rPIWN8r(r(rJrJrFr(9NrIrW9n9r9 9n9P9W9?9(9r9J9J9u9JnNnrn9nn95n n8nPnWn?nWnfnJn ndxIxNxNx9x9xxx n8xPxWx?x?xfxJxzxO I N r");local e=0;o.weiwhkJO(function()o.LCxkHYwg()e=e+1 end)local function n(n,l)if l then return e end;e=n+e;end local l,e,r=h(0,h,n,s,o.mnYPkjKg);local function f()local l,e=o.mnYPkjKg(s,n(1,3),n(5,6)+2);n(2);return(e*256)+l;end;local b=true;local b=0 local function p()local t=e();local n=e();local d=1;local t=(l(n,1,20)*(2^32))+t;local e=l(n,21,31);local n=((-1)^l(n,32));if(e==0)then if(t==b)then return n*0;else e=1;d=0;end;elseif(e==2047)then return(t==0)and(n*(1/0))or(n*(0/0));end;return o.iujGEfFV(n,e-1023)*(d+(t/(2^52)));end;local y=e;local function k(e)local l;if(not e)then e=y();if(e==0)then return'';end;end;l=o.oEtywsOd(s,n(1,3),n(5,6)+e-1);n(e)local n=""for e=(1+b),#l do n=n..o.oEtywsOd(l,e,e)end return n;end;local b=#o.oQKKTlUS(u('\49.\48'))~=1 local n=e;local function en(...)return{...},o.LzoHvedU('#',...)end local function y()local s={};local h={};local n={};local u={h,s,nil,n};local n=e()local a={}for t=1,n do local l=r();local n;if(l==1)then n=(r()~=#{});elseif(l==3)then local e=p();if b and o.qCtVPVxn(o.oQKKTlUS(e),'.(\48+)$')then e=o.kJzbxOun(e);end n=e;elseif(l==0)then n=k();end;a[t]=n;end;u[3]=r();for u=1,e()do local n=r();if(l(n,1,1)==0)then local o=l(n,2,3);local r=l(n,4,6);local n={f(),f(),nil,nil};if(o==0)then n[t]=f();n[c]=f();elseif(o==#{1})then n[t]=e();elseif(o==z[2])then n[t]=e()-(2^16)elseif(o==z[3])then n[t]=e()-(2^16)n[c]=f();end;if(l(r,1,1)==1)then n[d]=a[n[d]]end if(l(r,2,2)==1)then n[t]=a[n[t]]end if(l(r,3,3)==1)then n[c]=a[n[c]]end h[u]=n;end end;for n=1,e()do s[n-(#{1})]=y();end;return u;end;local function m(l,e,n)local t=e;local t=n;return u(o.qCtVPVxn(o.qCtVPVxn(({o.weiwhkJO(l)})[2],e),n))end local function j(p,n,u)local function _(...)local f,g,z,j,s,l,r,y,k,b,m,e;local n=0;while-1<n do if n>=3 then if n<5 then if-1<n then for e=15,68 do if n>3 then b=o.LzoHvedU('#',...)-1;m={};break;end;y={};k={...};break;end;else b=o.LzoHvedU('#',...)-1;m={};end else if n>3 then for l=13,64 do if 5~=n then n=-2;break;end;e=h(7);break;end;else e=h(7);end end else if n<1 then f=h(6,26,1,81,p);g=h(6,6,2,67,p);else if 2~=n then z=h(6,51,3,34,p);s=en j=0;else l=-41;r=-1;end end end n=n+1;end;for n=0,b do if(n>=z)then y[n-z]=k[n+1];else e[n]=k[n+1];end;end;local n=b-z+1 local n;local o;local function h(...)while true do end end while true do if l<-40 then l=l+42 end n=f[l];o=n[nn];if 11<o then if o>=18 then if 21<=o then if o>21 then if 18<=o then for f=49,74 do if o~=22 then l=n[t];break;end;local n=n[d]e[n]=e[n](a(e,n+1,r))break;end;else l=n[t];end else e(n[d],n[t]);end else if o>=19 then if 15~=o then for r=31,69 do if 20~=o then for o=0,3 do if 1>=o then if-1~=o then for r=14,59 do if o~=0 then u[n[t]]=e[n[d]];l=l+1;n=f[l];break;end;e[n[d]]=(n[t]~=0);l=l+1;n=f[l];break;end;else e[n[d]]=(n[t]~=0);l=l+1;n=f[l];end else if o<3 then e[n[d]]=u[n[t]];l=l+1;n=f[l];else if(e[n[d]]~=n[c])then l=l+1;else l=n[t];end;end end end break;end;e[n[d]]=u[n[t]];break;end;else e[n[d]]=u[n[t]];end else local l=n[d];local t=e[n[t]];e[l+1]=t;e[l]=t[n[c]];end end else if 14<o then if o>15 then if 12~=o then for f=22,81 do if o<17 then if(e[n[d]]~=n[c])then l=l+1;else l=n[t];end;break;end;l=n[t];break;end;else if(e[n[d]]~=n[c])then l=l+1;else l=n[t];end;end else e(n[d],n[t]);end else if 12>=o then e[n[d]]();else if o~=13 then e[n[d]]=u[n[t]];else do return end;end end end end else if o>=6 then if o<9 then if 7<=o then if 7==o then local d=n[d];local l=e[n[t]];e[d+1]=l;e[d]=l[n[c]];else e[n[d]]=(n[t]~=0);end else local o,b,z,p,h;e[n[d]]=u[n[t]];l=l+1;n=f[l];o=n[d];b=e[n[t]];e[o+1]=b;e[o]=b[n[c]];l=l+1;n=f[l];e(n[d],n[t]);l=l+1;n=f[l];o=n[d]z,p=s(e[o](a(e,o+1,n[t])))r=p+o-1 h=0;for n=o,r do h=h+1;e[n]=z[h];end;l=l+1;n=f[l];o=n[d]e[o]=e[o](a(e,o+1,r))l=l+1;n=f[l];e[n[d]]();l=l+1;n=f[l];do return end;end else if 9>=o then if(e[n[d]]~=n[c])then l=l+1;else l=n[t];end;else if o==10 then do return end;else u[n[t]]=e[n[d]];end end end else if o<=2 then if 1<=o then if 0<=o then for l=48,61 do if o~=2 then e[n[d]]();break;end;local l=n[d]local t,n=s(e[l](a(e,l+1,n[t])))r=n+l-1 local n=0;for l=l,r do n=n+1;e[l]=t[n];end;break;end;else local l=n[d]local t,n=s(e[l](a(e,l+1,n[t])))r=n+l-1 local n=0;for l=l,r do n=n+1;e[l]=t[n];end;end else u[n[t]]=e[n[d]];end else if 4<=o then if o~=2 then repeat if o<5 then local n=n[d]e[n]=e[n](a(e,n+1,r))break;end;e[n[d]]=(n[t]~=0);until true;else e[n[d]]=(n[t]~=0);end else local l=n[d]local t,n=s(e[l](a(e,l+1,n[t])))r=n+l-1 local n=0;for l=l,r do n=n+1;e[l]=t[n];end;end end end end l=1+l;end;end;return _ end;local d=0xff;local h={};local f=(1);local t='';(function(e)local l=e local r=0x00 local n=0x00 l={(function(c)if r>0x31 then return c end r=r+1 n=(n+0xda5-c)%0x3e return(n%0x03==0x2 and(function(l)if not e[l]then n=n+0x01 e[l]=(0xf1);t={t..'\58 a',t};h[f]=y();f=f+((not o.VyVjDkKF)and 1 or 0);t[1]='\58'..t[1];d[2]=0xff;end return true end)'JCmLD'and l[0x2](0x199+c))or(n%0x03==0x0 and(function(l)if not e[l]then n=n+0x01 e[l]=(0xe0);h[f]=g();f=f+d;end return true end)'DMFhc'and l[0x3](c+0x17e))or(n%0x03==0x1 and(function(l)if not e[l]then n=n+0x01 e[l]=(0x7f);d[2]=(d[2]*(m(function()h()end,a(t))-m(d[1],a(t))))+1;h[f]={};d=d[2];f=f+d;end return true end)'YIYUO'and l[0x1](c+0x10b))or c end),(function(o)if r>0x1e then return o end r=r+1 n=(n+0xebe-o)%0x49 return(n%0x03==0x0 and(function(l)if not e[l]then n=n+0x01 e[l]=(0x7b);end return true end)'VhyZc'and l[0x2](0x2c6+o))or(n%0x03==0x1 and(function(l)if not e[l]then n=n+0x01 e[l]=(0xe1);end return true end)'SxZJE'and l[0x3](o+0x8c))or(n%0x03==0x2 and(function(l)if not e[l]then n=n+0x01 e[l]=(0xc1);t='\37';d={function()d()end};t=t..'\100\43';end return true end)'WLBWL'and l[0x1](o+0x370))or o end),(function(t)if r>0x26 then return t end r=r+1 n=(n+0xcfe-t)%0x18 return(n%0x03==0x0 and(function(l)if not e[l]then n=n+0x01 e[l]=(0x95);end return true end)'bydBE'and l[0x2](0x349+t))or(n%0x03==0x2 and(function(l)if not e[l]then n=n+0x01 e[l]=(0x79);end return true end)'nIXWR'and l[0x1](t+0x3e4))or(n%0x03==0x1 and(function(l)if not e[l]then n=n+0x01 e[l]=(0x51);end return true end)'UjPCO'and l[0x3](t+0x225))or t end)}l[0x2](0x1735)end){};local n=j(a(h));return n(...);end return y((function()local e={}local n=0x01;local l;if o.VyVjDkKF then l=o.VyVjDkKF(y)else l=''end if o.qCtVPVxn(l,o.SVyMZdXh)then n=n+0;else n=n+1;end e[n]=0x02;e[e[n]+0x01]=0x03;return e;end)(),...)end)((function(l,n,e,t,d,o)local o;if 4<=l then if l<6 then if 1<=l then repeat if l<5 then local l=t;local r,f,t=d(2);do return function()local o,n,e,d=n(e,l(l,l),l(l,l)+3);l(4);return(d*r)+(e*f)+(n*t)+o;end;end;break;end;local l=t;do return function()local n=n(e,l(l,l),l(l,l));l(1);return n;end;end;until true;else local l=t;local f,r,o=d(2);do return function()local d,t,e,n=n(e,l(l,l),l(l,l)+3);l(4);return(n*f)+(e*r)+(t*o)+d;end;end;end else if l<=6 then do return d[e]end;else if 7<l then do return e(l,nil,e);end else do return setmetatable({},{['__\99\97\108\108']=function(n,l,d,t,e)if e then return n[e]elseif t then return n else n[l]=d end end})end end end end else if l<=1 then if l==1 then do return function(e,n,l)if l then local n=(e/2^(n-1))%2^((l-1)-(n-1)+1);return n-n%1;else local n=2^(n-1);return(e%(n+n)>=n)and 1 or 0;end;end;end;else do return n(1),n(4,d,t,e,n),n(5,d,t,e)end;end else if l>2 then do return n(1),n(4,d,t,e,n),n(5,d,t,e)end;else do return 16777216,65536,256 end;end end end end),...)
+local Library = {}
+Library.__index = Library
+
+-- Cores e configurações
+local colors = {
+    background = Color3.fromRGB(40, 40, 40),
+    primary = Color3.fromRGB(106, 43, 186),
+    secondary = Color3.fromRGB(70, 25, 130),
+    text = Color3.fromRGB(255, 255, 255),
+    black = Color3.fromRGB(20, 20, 20)
+}
+
+local transparency = 0.4
+
+-- Funções utilitárias
+local function createElement(className, properties)
+    local element = Instance.new(className)
+    for property, value in pairs(properties) do
+        element[property] = value
+    end
+    return element
+end
+
+-- Inicialização da Library
+function Library:Init()
+    local screenGui = createElement("ScreenGui", {
+        Name = "ScriptHubUI",
+        ResetOnSpawn = false
+    })
+    
+    self.mainFrame = createElement("Frame", {
+        Name = "MainFrame",
+        BackgroundColor3 = colors.background,
+        BackgroundTransparency = transparency,
+        BorderColor3 = colors.primary,
+        BorderSizePixel = 2,
+        Position = UDim2.new(0.3, 0, 0.2, 0),
+        Size = UDim2.new(0.4, 0, 0.6, 0),
+        Parent = screenGui
+    })
+    
+    -- Header com título e botões de controle
+    local header = createElement("Frame", {
+        Name = "Header",
+        BackgroundColor3 = colors.primary,
+        BackgroundTransparency = 0.2,
+        BorderSizePixel = 0,
+        Size = UDim2.new(1, 0, 0.08, 0),
+        Parent = self.mainFrame
+    })
+    
+    self.titleLabel = createElement("TextLabel", {
+        Name = "TitleLabel",
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.02, 0, 0, 0),
+        Size = UDim2.new(0.6, 0, 1, 0),
+        Font = Enum.Font.GothamBold,
+        Text = "Script Hub",
+        TextColor3 = colors.text,
+        TextSize = 16,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        Parent = header
+    })
+    
+    -- Botões de controle
+    local closeBtn = createElement("TextButton", {
+        Name = "CloseButton",
+        BackgroundColor3 = Color3.fromRGB(200, 60, 60),
+        BackgroundTransparency = 0.3,
+        BorderSizePixel = 0,
+        Position = UDim2.new(0.85, 0, 0.2, 0),
+        Size = UDim2.new(0.05, 0, 0.6, 0),
+        Font = Enum.Font.Gotham,
+        Text = "X",
+        TextColor3 = colors.text,
+        TextSize = 14,
+        Parent = header
+    })
+    
+    local minimizeBtn = createElement("TextButton", {
+        Name = "MinimizeButton",
+        BackgroundColor3 = colors.secondary,
+        BackgroundTransparency = 0.3,
+        BorderSizePixel = 0,
+        Position = UDim2.new(0.75, 0, 0.2, 0),
+        Size = UDim2.new(0.05, 0, 0.6, 0),
+        Font = Enum.Font.Gotham,
+        Text = "_",
+        TextColor3 = colors.text,
+        TextSize = 14,
+        Parent = header
+    })
+    
+    local maximizeBtn = createElement("TextButton", {
+        Name = "MaximizeButton",
+        BackgroundColor3 = colors.secondary,
+        BackgroundTransparency = 0.3,
+        BorderSizePixel = 0,
+        Position = UDim2.new(0.8, 0, 0.2, 0),
+        Size = UDim2.new(0.05, 0, 0.6, 0),
+        Font = Enum.Font.Gotham,
+        Text = "□",
+        TextColor3 = colors.text,
+        TextSize = 14,
+        Parent = header
+    })
+    
+    -- Área de conteúdo
+    self.contentFrame = createElement("Frame", {
+        Name = "ContentFrame",
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0, 0, 0.08, 0),
+        Size = UDim2.new(1, 0, 0.92, 0),
+        Parent = self.mainFrame
+    })
+    
+    -- Sistema de notificações
+    self.notificationContainer = createElement("Frame", {
+        Name = "NotificationContainer",
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.02, 0, 0.02, 0),
+        Size = UDim2.new(0.96, 0, 0.2, 0),
+        Parent = screenGui
+    })
+    
+    -- Tela de loading
+    self.loadingScreen = createElement("Frame", {
+        Name = "LoadingScreen",
+        BackgroundColor3 = colors.black,
+        BackgroundTransparency = 0.2,
+        Size = UDim2.new(1, 0, 1, 0),
+        Visible = false,
+        Parent = screenGui
+    })
+    
+    local loadingSpinner = createElement("Frame", {
+        Name = "LoadingSpinner",
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.5, 0, 0.4, 0),
+        Size = UDim2.new(0.1, 0, 0.1, 0),
+        Parent = self.loadingScreen
+    })
+    
+    local loadingText = createElement("TextLabel", {
+        Name = "LoadingText",
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.5, 0, 0.55, 0),
+        Size = UDim2.new(0.6, 0, 0.1, 0),
+        Font = Enum.Font.Gotham,
+        Text = "Carregando...",
+        TextColor3 = colors.text,
+        TextSize = 18,
+        Parent = self.loadingScreen
+    })
+    
+    -- Eventos dos botões de controle
+    closeBtn.MouseButton1Click:Connect(function()
+        screenGui:Destroy()
+    end)
+    
+    local isMinimized = false
+    minimizeBtn.MouseButton1Click:Connect(function()
+        if isMinimized then
+            self.mainFrame.Size = UDim2.new(0.4, 0, 0.6, 0)
+            self.contentFrame.Visible = true
+        else
+            self.mainFrame.Size = UDim2.new(0.4, 0, 0.08, 0)
+            self.contentFrame.Visible = false
+        end
+        isMinimized = not isMinimized
+    end)
+    
+    local isMaximized = false
+    maximizeBtn.MouseButton1Click:Connect(function()
+        if isMaximized then
+            self.mainFrame.Size = UDim2.new(0.4, 0, 0.6, 0)
+            self.mainFrame.Position = UDim2.new(0.3, 0, 0.2, 0)
+        else
+            self.mainFrame.Size = UDim2.new(0.95, 0, 0.9, 0)
+            self.mainFrame.Position = UDim2.new(0.025, 0, 0.05, 0)
+        end
+        isMaximized = not isMaximized
+    end)
+    
+    screenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+    self.screenGui = screenGui
+    
+    return self
+end
+
+-- Função para criar botão de texto
+function Library:CreateTextButton(name, properties)
+    local defaultProps = {
+        BackgroundColor3 = colors.primary,
+        BackgroundTransparency = 0.3,
+        BorderColor3 = colors.secondary,
+        BorderSizePixel = 1,
+        Size = UDim2.new(0.9, 0, 0.08, 0),
+        Font = Enum.Font.Gotham,
+        Text = name,
+        TextColor3 = colors.text,
+        TextSize = 14
+    }
+    
+    for prop, value in pairs(properties or {}) do
+        defaultProps[prop] = value
+    end
+    
+    local button = createElement("TextButton", defaultProps)
+    button.Parent = self.contentFrame
+    
+    return button
+end
+
+-- Função para criar label de texto
+function Library:CreateTextLabel(name, properties)
+    local defaultProps = {
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0.9, 0, 0.06, 0),
+        Font = Enum.Font.Gotham,
+        Text = name,
+        TextColor3 = colors.text,
+        TextSize = 14,
+        TextXAlignment = Enum.TextXAlignment.Left
+    }
+    
+    for prop, value in pairs(properties or {}) do
+        defaultProps[prop] = value
+    end
+    
+    local label = createElement("TextLabel", defaultProps)
+    label.Parent = self.contentFrame
+    
+    return label
+end
+
+-- Função para criar dropdown
+function Library:CreateDropdown(name, options, callback)
+    local dropdownFrame = createElement("Frame", {
+        BackgroundColor3 = colors.primary,
+        BackgroundTransparency = 0.3,
+        BorderColor3 = colors.secondary,
+        BorderSizePixel = 1,
+        Size = UDim2.new(0.9, 0, 0.08, 0),
+        Parent = self.contentFrame
+    })
+    
+    local dropdownLabel = createElement("TextLabel", {
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.02, 0, 0, 0),
+        Size = UDim2.new(0.7, 0, 1, 0),
+        Font = Enum.Font.Gotham,
+        Text = name,
+        TextColor3 = colors.text,
+        TextSize = 14,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        Parent = dropdownFrame
+    })
+    
+    local dropdownButton = createElement("TextButton", {
+        BackgroundColor3 = colors.secondary,
+        BackgroundTransparency = 0.2,
+        BorderSizePixel = 0,
+        Position = UDim2.new(0.75, 0, 0.15, 0),
+        Size = UDim2.new(0.2, 0, 0.7, 0),
+        Font = Enum.Font.Gotham,
+        Text = "▼",
+        TextColor3 = colors.text,
+        TextSize = 14,
+        Parent = dropdownFrame
+    })
+    
+    local optionsFrame = createElement("ScrollingFrame", {
+        BackgroundColor3 = colors.primary,
+        BackgroundTransparency = 0.1,
+        BorderColor3 = colors.secondary,
+        BorderSizePixel = 1,
+        Position = UDim2.new(0, 0, 1, 0),
+        Size = UDim2.new(1, 0, 0, 0),
+        CanvasSize = UDim2.new(0, 0, 0, 0),
+        ScrollBarThickness = 5,
+        Visible = false,
+        Parent = dropdownFrame
+    })
+    
+    local isOpen = false
+    
+    dropdownButton.MouseButton1Click:Connect(function()
+        if isOpen then
+            optionsFrame.Visible = false
+            optionsFrame.Size = UDim2.new(1, 0, 0, 0)
+            dropdownButton.Text = "▼"
+        else
+            optionsFrame.Visible = true
+            optionsFrame.Size = UDim2.new(1, 0, 3, 0)
+            dropdownButton.Text = "▲"
+        end
+        isOpen = not isOpen
+    end)
+    
+    local function addOption(optionText)
+        local optionButton = createElement("TextButton", {
+            BackgroundColor3 = colors.background,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            Size = UDim2.new(0.95, 0, 0, 25),
+            Font = Enum.Font.Gotham,
+            Text = optionText,
+            TextColor3 = colors.text,
+            TextSize = 14,
+            Parent = optionsFrame
+        })
+        
+        optionButton.MouseButton1Click:Connect(function()
+            dropdownLabel.Text = optionText
+            optionsFrame.Visible = false
+            optionsFrame.Size = UDim2.new(1, 0, 0, 0)
+            dropdownButton.Text = "▼"
+            isOpen = false
+            if callback then
+                callback(optionText)
+            end
+        end)
+        
+        optionsFrame.CanvasSize = UDim2.new(0, 0, 0, optionsFrame.CanvasSize.Y.Offset + 30)
+    end
+    
+    for _, option in ipairs(options) do
+        addOption(option)
+    end
+    
+    return dropdownFrame
+end
+
+-- Função para criar input de texto
+function Library:CreateTextInput(placeholder, callback)
+    local textBox = createElement("TextBox", {
+        BackgroundColor3 = colors.background,
+        BackgroundTransparency = 0.5,
+        BorderColor3 = colors.primary,
+        BorderSizePixel = 1,
+        Size = UDim2.new(0.9, 0, 0.08, 0),
+        Font = Enum.Font.Gotham,
+        PlaceholderText = placeholder,
+        Text = "",
+        TextColor3 = colors.text,
+        TextSize = 14,
+        ClearTextOnFocus = false,
+        Parent = self.contentFrame
+    })
+    
+    textBox.FocusLost:Connect(function(enterPressed)
+        if enterPressed and callback then
+            callback(textBox.Text)
+        end
+    end)
+    
+    return textBox
+end
+
+-- Função para criar slider
+function Library:CreateSlider(name, min, max, defaultValue, callback)
+    local sliderFrame = createElement("Frame", {
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0.9, 0, 0.1, 0),
+        Parent = self.contentFrame
+    })
+    
+    local sliderLabel = createElement("TextLabel", {
+        BackgroundTransparency = 1,
+        Size = UDim2.new(1, 0, 0.4, 0),
+        Font = Enum.Font.Gotham,
+        Text = name .. ": " .. defaultValue,
+        TextColor3 = colors.text,
+        TextSize = 14,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        Parent = sliderFrame
+    })
+    
+    local track = createElement("Frame", {
+        BackgroundColor3 = colors.primary,
+        BackgroundTransparency = 0.5,
+        BorderSizePixel = 0,
+        Position = UDim2.new(0, 0, 0.6, 0),
+        Size = UDim2.new(1, 0, 0.2, 0),
+        Parent = sliderFrame
+    })
+    
+    local fill = createElement("Frame", {
+        BackgroundColor3 = colors.secondary,
+        BorderSizePixel = 0,
+        Size = UDim2.new((defaultValue - min) / (max - min), 0, 1, 0),
+        Parent = track
+    })
+    
+    local button = createElement("TextButton", {
+        BackgroundColor3 = colors.text,
+        BorderSizePixel = 0,
+        Position = UDim2.new((defaultValue - min) / (max - min), -8, -1.5, 0),
+        Size = UDim2.new(0, 16, 0, 16),
+        Text = "",
+        Parent = track
+    })
+    
+    local isSliding = false
+    
+    local function updateValue(value)
+        local normalized = math.clamp((value - min) / (max - min), 0, 1)
+        fill.Size = UDim2.new(normalized, 0, 1, 0)
+        button.Position = UDim2.new(normalized, -8, -1.5, 0)
+        local displayValue = math.floor(value * 100) / 100
+        sliderLabel.Text = name .. ": " .. displayValue
+        
+        if callback then
+            callback(displayValue)
+        end
+    end
+    
+    button.MouseButton1Down:Connect(function()
+        isSliding = true
+    end)
+    
+    game:GetService("UserInputService").InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            isSliding = false
+        end
+    end)
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if isSliding and input.UserInputType == Enum.UserInputType.MouseMovement then
+            local mousePos = game:GetService("UserInputService"):GetMouseLocation()
+            local relativeX = (mousePos.X - track.AbsolutePosition.X) / track.AbsoluteSize.X
+            local value = min + (max - min) * math.clamp(relativeX, 0, 1)
+            updateValue(value)
+        end
+    end)
+    
+    return sliderFrame
+end
+
+-- Função para criar scrolling frame
+function Library:CreateScrollingFrame(properties)
+    local defaultProps = {
+        BackgroundColor3 = colors.background,
+        BackgroundTransparency = 0.5,
+        BorderColor3 = colors.primary,
+        BorderSizePixel = 1,
+        Size = UDim2.new(0.9, 0, 0.4, 0),
+        CanvasSize = UDim2.new(0, 0, 0, 0),
+        ScrollBarThickness = 5
+    }
+    
+    for prop, value in pairs(properties or {}) do
+        defaultProps[prop] = value
+    end
+    
+    local scrollingFrame = createElement("ScrollingFrame", defaultProps)
+    scrollingFrame.Parent = self.contentFrame
+    
+    local uiListLayout = createElement("UIListLayout", {
+        SortOrder = Enum.SortOrder.LayoutOrder,
+        Padding = UDim.new(0, 5),
+        Parent = scrollingFrame
+    })
+    
+    uiListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, uiListLayout.AbsoluteContentSize.Y)
+    end)
+    
+    return scrollingFrame
+end
+
+-- Função para mostrar notificação
+function Library:Notify(title, message, duration)
+    duration = duration or 5
+    
+    local notification = createElement("Frame", {
+        BackgroundColor3 = colors.primary,
+        BackgroundTransparency = 0.2,
+        BorderColor3 = colors.secondary,
+        BorderSizePixel = 1,
+        Size = UDim2.new(1, 0, 0, 60),
+        Parent = self.notificationContainer
+    })
+    
+    local titleLabel = createElement("TextLabel", {
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.02, 0, 0.1, 0),
+        Size = UDim2.new(0.96, 0, 0.3, 0),
+        Font = Enum.Font.GothamBold,
+        Text = title,
+        TextColor3 = colors.text,
+        TextSize = 14,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        Parent = notification
+    })
+    
+    local messageLabel = createElement("TextLabel", {
+        BackgroundTransparency = 1,
+        Position = UDim2.new(0.02, 0, 0.5, 0),
+        Size = UDim2.new(0.96, 0, 0.4, 0),
+        Font = Enum.Font.Gotham,
+        Text = message,
+        TextColor3 = colors.text,
+        TextSize = 12,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextWrapped = true,
+        Parent = notification
+    })
+    
+    task.spawn(function()
+        task.wait(duration)
+        notification:Destroy()
+    end)
+    
+    return notification
+end
+
+-- Função para mostrar tela de loading
+function Library:ShowLoadingScreen(message)
+    self.loadingScreen.Visible = true
+    self.loadingScreen:FindFirstChild("LoadingText").Text = message or "Carregando..."
+    
+    -- Animação do spinner (simplificada)
+    local spinner = self.loadingScreen:FindFirstChild("LoadingSpinner")
+    if spinner then
+        local rotation = 0
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if not self.loadingScreen.Visible then return end
+            rotation = (rotation + 2) % 360
+            spinner.Rotation = rotation
+        end)
+    end
+end
+
+-- Função para esconder tela de loading
+function Library:HideLoadingScreen()
+    self.loadingScreen.Visible = false
+end
+
+-- Função para definir o título
+function Library:SetTitle(title)
+    self.titleLabel.Text = title
+end
+
+return Library
